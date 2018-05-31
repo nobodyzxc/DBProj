@@ -63,5 +63,6 @@ pip install flask_login
    儲存後回 console.html
 
 - `blog/<user>`
+- `blog/<user>/<post>`
 
    實作從資料庫參考 user 的 config 及動態渲染 user blog
