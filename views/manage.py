@@ -10,5 +10,3 @@ manage_pages = Blueprint('manage_pages', __name__,
 @login_required
 def manage():
     return render_template('manage.html', name = current_user.username)
-
-

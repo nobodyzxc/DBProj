@@ -50,7 +50,7 @@ pip install flask_login
 
    然後存 md 到資料庫。
 
-   （還要提供 render，可將 db 的 md render 成 html。)
+   （還要提供 [render](https://github.com/trentm/python-markdown2)([更多樣式](https://github.com/trentm/python-markdown2/wiki/Extras)，最重要的是 [code block](https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks)，可將 db 的 md render 成 html。)
 
    取消或儲存回到 manage.html
 

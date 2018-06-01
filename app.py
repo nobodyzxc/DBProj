@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template, request, redirect, flash, url_for
 from flask_login import login_required, current_user, login_user, LoginManager
 
-from model.user import UsersRepository
+from module.user import UsersRepository
 
 import sqlite3
 

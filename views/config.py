@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app import app, users
 
 config_pages = Blueprint('config_pages', __name__,

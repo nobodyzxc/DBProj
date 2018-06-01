@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 from flask_login import login_required, current_user, login_user, LoginManager
 
+from module.security import hash_password, check_password
 from app import app, users
 
 login_manager = LoginManager()
@@ -23,13 +24,13 @@ def login():
         user = users.get_user(username)
         if sign == 'up':
             if user == None:
-                users.save_user(username, hash(password))
+                users.save_user(username, hash_password(password))
                 login_user(users.get_user(username))
                 return redirect(url_for('manage_pages.manage'))
             else:
                 return render_template('login.html', info = 'existed username')
         elif sign == 'in':
-            if user != None and user.hashedpw == hash(password):
+            if user != None and check_password(user.hashedpw, password):
                 login_user(user)
                 print(user.username + "loggined")
                 return redirect(url_for('manage_pages.manage'))
@@ -50,5 +51,3 @@ def logout():
 def user_list():
     print(users.users)
     return render_template('users.html', user_list = users.users)
-
-
