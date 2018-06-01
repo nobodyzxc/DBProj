@@ -2,7 +2,20 @@
     <head>
     </head>
     <body>
-        <h1>login form</h1>
-        <a href='./console.html'>login</a>
+        <h1>signin form</h1>
+        <form action="./login" method="post">
+            <p><input type=hidden name=sign value=in>
+            <p><input type=text name=username placeholder="Enter username">
+            <p><input type=password name=password placeholder="Enter password">
+            <p><input type=submit value=Login>
+        </form>
+        <h1>signup form</h1>
+        <form action="./login" method="post">
+            <p><input type=hidden name=sign value=up>
+            <p><input type=text name=username placeholder="New username">
+            <p><input type=password name=password placeholder="New password">
+            <p><input type=submit value=Login>
+        </form>
+        <span style="color:red">{{ info }}</span>
     </body>
 </html>

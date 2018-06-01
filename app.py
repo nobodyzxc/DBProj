@@ -1,45 +1,45 @@
-from flask import Flask, jsonify, render_template, request, redirect, flash
-from flask_login import login_required, current_user
+from flask import Flask, jsonify, render_template, request, redirect, flash, url_for
+from flask_login import login_required, current_user, login_user, LoginManager
+
+from model.user import UsersRepository
+
 import sqlite3
 
-
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret_key'
+
+users = UsersRepository()
+users.load_db()
+
+# handle login failed
+@app.errorhandler(401)
+def page_not_found(e):
+    return Response('<p>Login failed</p>')
 
 # -> login, and blog available
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-# => editor & config, show posts here
-@app.route('/<string:user>/console')
-@login_required
-def console(user):
-    return render_template('console.html')
-
-# layout and extension market here
-@app.route('/<string:user>/config')
-@login_required
-def config(user):
-    return render_template('config.html')
-
-# markdown editor
-@app.route('/<string:user>/editor')
-@login_required
-def mkd_editor(user):
-    return render_template('editor.html')
-
-# user blog render
-@app.route('/blog/<string:user>')
-def home_page(user):
-    return render_template('home_page.html')
-
-@app.route('/blog/<string:user>/<string:post>')
-def home_page(user, post):
-    return 'impl here'
-
 if __name__=='__main__':
+    app.users = users
+
+    from views.login import login_pages, login_manager
+    app.register_blueprint(login_pages)
+
+    login_manager.login_view = 'login_pages.login'
+    login_manager.init_app(app)
+
+    from views.editor import editor_pages
+    app.register_blueprint(editor_pages)
+
+    from views.config import config_pages
+    app.register_blueprint(config_pages)
+
+    from views.blog import blog_pages
+    app.register_blueprint(blog_pages)
+
+    from views.manage import manage_pages
+    app.register_blueprint(manage_pages)
+
     app.run(debug=True)
