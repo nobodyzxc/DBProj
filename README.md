@@ -59,11 +59,22 @@ pip install markdown2
 
    例如 markdown 的渲染方法及 layout。
 
+   這裡有 css 供參考，你要提供一些 css 配置供使用者挑選，可將 db 的 md render 成 html。
+
+   - [link1](http://markdowncss.github.io)
+   - [link2](http://jasonm23.github.io/markdown-css-themes/)
+   - [link3](https://sindresorhus.com/github-markdown-css/)
+
    儲存後回 manage.html
 
 - `/blog/<user>`
 - `/blog/<user>/<post>`
 
+   提供 layout。
+
    實作從資料庫參考 user 的 config 及動態渲染 user blog
 
-   使用 markdown [render](https://github.com/trentm/python-markdown2)([更多樣式](https://github.com/trentm/python-markdown2/wiki/Extras)，最重要的是 [code block](https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks)，這裡有 [css](http://jasonm23.github.io/markdown-css-themes/) 供參考），可將 db 的 md render 成 html。
+   使用 markdown [render](https://github.com/trentm/python-markdown2)
+
+   注意他的 [Extra](https://github.com/trentm/python-markdown2/wiki/Extras) 用法，最重要的是 [code block](https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks) 要有顏色！
+
