@@ -7,6 +7,7 @@ To run this project, you need
 ```
 pip install flask
 pip install flask_login
+pip install markdown2
 ```
 
 ### Material
@@ -50,8 +51,6 @@ pip install flask_login
 
    然後存 md 到資料庫。
 
-   （還要提供 [render](https://github.com/trentm/python-markdown2)([更多樣式](https://github.com/trentm/python-markdown2/wiki/Extras)，最重要的是 [code block](https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks)，可將 db 的 md render 成 html。)
-
    取消或儲存回到 manage.html
 
 - `/config`
@@ -66,3 +65,5 @@ pip install flask_login
 - `/blog/<user>/<post>`
 
    實作從資料庫參考 user 的 config 及動態渲染 user blog
+
+   使用 markdown [render](https://github.com/trentm/python-markdown2)([更多樣式](https://github.com/trentm/python-markdown2/wiki/Extras)，最重要的是 [code block](https://github.com/trentm/python-markdown2/wiki/fenced-code-blocks)，這裡有 [css](http://jasonm23.github.io/markdown-css-themes/) 供參考），可將 db 的 md render 成 html。
