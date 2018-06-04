@@ -5,11 +5,13 @@ from module.user import UsersRepository
 
 import sqlite3
 
+db_name = 'test.db'
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 
 users = UsersRepository()
-users.load_db()
+users.load_db(db_name)
 
 # handle login failed
 @app.errorhandler(401)

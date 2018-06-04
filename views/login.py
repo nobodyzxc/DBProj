@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, flash, url_for
 from flask_login import login_required, current_user, login_user, LoginManager
 
 from module.security import hash_password, check_password
-from app import app, users
+from app import app, users, db_name
 
 login_manager = LoginManager()
 
@@ -24,7 +24,7 @@ def login():
         user = users.get_user(username)
         if sign == 'up':
             if user == None:
-                users.save_user(username, hash_password(password))
+                users.save_user(db_name , username, hash_password(password))
                 login_user(users.get_user(username))
                 return redirect(url_for('manage_pages.manage'))
             else:

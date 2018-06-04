@@ -1,4 +1,5 @@
 from flask_login import UserMixin
+from .db import get_users, save_user
 
 class User(UserMixin):
     def __init__(self , username , password, active=True):
@@ -23,16 +24,21 @@ class UsersRepository:
     def __init__(self):
         self.users = dict()
 
-    def save_user(self ,name, pw):
+    def load_user(self ,name, pw):
+        self.users.setdefault(name , User(name, pw))
+
+    def save_user(self ,db , name, pw):
         self.users.setdefault(name , User(name, pw))
         # save user to db
+        save_user(db, name, pw)
 
     def get_user(self , username):
         return self.users.get(username)
 
-    def load_db(self):
-        # load db
-        pass
+    def load_db(self, db_name):
+        users = get_users(db_name)
+        for user in users:
+            self.load_user(user[0], user[1])
 
     def show(self):
         print('"""')
