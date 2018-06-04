@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 from flask_login import login_required, current_user
-from app import app, users
+from app import app, users, db_name
+from module.db import query, alter
 
 manage_pages = Blueprint('manage_pages', __name__,
                         template_folder='templates')
