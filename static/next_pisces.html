@@ -1,0 +1,3250 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://almostover.ru/ -->
+<html class="theme-next pisces" lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="QYAN4JN3EStOD6_dgPJcgZ6_P-MpxCJ2AylluRxZ5Kc">
+
+
+
+
+  <meta name="yandex-verification" content="60259fbb03ee0a55">
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="./next_pisces_files/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="./next_pisces_files/css" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="./next_pisces_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="./next_pisces_files/main.css" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="CentOS, NGINX, MySQL, SEO, Security, Monitoring, Hexo">
+
+
+
+
+
+  <link rel="alternate" href="https://almostover.ru/atom.xml" title="Almost Over" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://almostover.ru/favicon.ico?v=5.1.1">
+
+
+
+
+  <meta property="fb:admins" content="100013305965736">
+  <meta property="fb:app_id" content="653260794836316">
+
+
+
+<meta name="description" content="«Почти Всё» об администрировании серверов под CentOS, SEO-оптимизации и монетизации сайтов самостоятельно.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Almost Over">
+<meta property="og:url" content="https://almostover.ru/">
+<meta property="og:site_name" content="Almost Over">
+<meta property="og:description" content="«Почти Всё» об администрировании серверов под CentOS, SEO-оптимизации и монетизации сайтов самостоятельно.">
+<meta property="og:image" content="https://almostover.ru/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Almost Over">
+<meta name="twitter:description" content="«Почти Всё» об администрировании серверов под CentOS, SEO-оптимизации и монетизации сайтов самостоятельно.">
+<meta name="twitter:image" content="https://almostover.ru/logo.png">
+
+
+
+<script type="text/javascript" async="" src="./next_pisces_files/watch.js"></script><script type="text/javascript" async="" src="./next_pisces_files/widget.js"></script><script type="text/javascript" async="" src="./next_pisces_files/widget(1).js"></script><script async="" src="./next_pisces_files/analytics.js"></script><script id="facebook-jssdk" src="./next_pisces_files/fb_sdk.js"></script><script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    tabs: true,
+    motion: false,
+    duoshuo: {
+      userId: 0,
+      author: 'Ivan.Nginx'
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://almostover.ru/">
+
+  <title>Almost Over</title>
+<style type="text/css">.fancybox-margin{margin-right:15px;}</style><link rel="stylesheet" type="text/css" media="screen" href="./next_pisces_files/index.css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ru">
+
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '653260794836316',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "/vendors/fb_sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+	<div id="vk_api_transport" style="position: absolute; top: -10000px;"><script type="text/javascript" src="./next_pisces_files/openapi.js" async=""></script></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 5827536
+			});
+
+			
+
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-73414665-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="https://almostover.ru/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Almost Over</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+	<div class="site-subtitle-toggle">«Почти Всё»</div>
+	<h1 class="site-subtitle" itemprop="description" style="display: none">«Почти Всё» об администрировании серверов под CentOS, SEO-оптимизации и монетизации сайтов самостоятельно.</h1>
+
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about menu-item-active">
+          <a href="https://almostover.ru/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            О сайте
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="https://almostover.ru/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Тэги
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="https://almostover.ru/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br>
+            
+            Категории
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://almostover.ru/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Архив
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="https://almostover.ru/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Карта сайта
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="https://almostover.ru/#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Поиск
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Поиск..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+  
+</nav>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : "Almost Over",
+    "url" : "https://almostover.ru",
+    "sameAs" : [
+        "https://www.facebook.com/almostover.ru",
+        "https://vk.com/almostover_ru",
+        "https://plus.google.com/116275186846246718031",
+        "https://twitter.com/ivan_nginx"
+    ]
+}
+</script> </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <div id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2017-04/advanced-ssl-tuning/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2017-04/advanced-ssl-tuning/" itemprop="url">
+                  Тонкая настройка SSL
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-04-18T01:29:47+03:00">
+			2017-04-18
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-04-21T02:03:04+03:00">
+			2017-04-21
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2017-04/advanced-ssl-tuning/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2017-04/advanced-ssl-tuning/" itemprop="commentCount">0</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      1,093
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      8
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			В данном руководстве подробно рассматриваются такие возможности SSL, как OCSP Stapling, HTTP Strict Transport Security.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/advanced-ssl-tuning.png" class="full-image" alt="Тонкая настройка SSL"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2017-04/advanced-ssl-tuning/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2017-04/get-letsencrypt-free-ssl-and-configure-with-nginx/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2017-04/get-letsencrypt-free-ssl-and-configure-with-nginx/" itemprop="url">
+                  SSL сертификат от Let's Encrypt под NGINX
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-04-17T15:12:00+03:00">
+			2017-04-17
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-07-09T20:19:25+03:00">
+			2017-07-09
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2017-04/get-letsencrypt-free-ssl-and-configure-with-nginx/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2017-04/get-letsencrypt-free-ssl-and-configure-with-nginx/" itemprop="commentCount">3</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      1,306
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      9
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Установка, настройка и автопродление бесплатных сертификатов от Let's Encrypt под бесконечное кол-во доменов и поддоменов.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/get-letsencrypt-free-ssl-and-configure-with-nginx.png" class="full-image" alt="SSL сертификат от Let&#39;s Encrypt под NGINX"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Я понимаю, что тема о Let’s Encrypt уже давно не нова, только найти максимально чёткую инструкцию по установке и автопродлению мне так и не удалось. Да, есть темы на Хабре в 2016-ом за  <span class="exturl" data-url="aHR0cHM6Ly9oYWJyYWhhYnIucnUvcG9zdC8yNzk2OTUv" title="Yet another инструкция по получению ssl-сертификата Let&#39;s Encrypt"><i class="fa fa-external-link"></i> Март</span>, <span class="exturl" data-url="aHR0cHM6Ly9oYWJyYWhhYnIucnUvcG9zdC8zMDE1NTgv" title="Подробная инструкция по установке SSL-сертификата Let’s Encrypt на сервер с CMS Bitrix и Nginx"><i class="fa fa-external-link"></i> Май</span> и <span class="exturl" data-url="aHR0cHM6Ly9oYWJyYWhhYnIucnUvcG9zdC8zMDYxMjgv" title="Настройка Nginx с Let&#39;s Encrypt на CentOS 7"><i class="fa fa-external-link"></i> Июль</span>. Нашел ещё <span class="exturl" data-url="aHR0cHM6Ly9pbnRzeXN0ZW0ub3JnL3NlcnZlci9sZXRzZW5jcnlwdC1jZXJ0aWZpY2F0ZS8=" title="Поставил сертификат Let’s Encrypt"><i class="fa fa-external-link"></i> такой вариант</span>, <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1zZWN1cmUtbmdpbngtd2l0aC1sZXQtcy1lbmNyeXB0LW9uLWNlbnRvcy03" title="How To Secure Nginx with Let&#39;s Encrypt on CentOS 7"><i class="fa fa-external-link"></i> такой</span> и даже <span class="exturl" data-url="aHR0cHM6Ly9tYWpvci5pby8yMDE2LzAzLzMxL2F1dG9tYXRlZC1sZXRzLWVuY3J5cHQtZG5zLWNoYWxsZW5nZXMtd2l0aC1yYWNrc3BhY2UtY2xvdWQtZG5zLw==" title="Automated Let’s Encrypt DNS challenges with Rackspace Cloud DNS"><i class="fa fa-external-link"></i> такой</span>. И каждая из них чем-то да отличается. Причём не понятно, какой мануал универсальнее и правильнее. Поэтому, предлагаю свою вариацию руководства, собрав самое лучшее из всего найденного.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2017-04/get-letsencrypt-free-ssl-and-configure-with-nginx/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2017-02/windows-processor-cores-optimize/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2017-02/windows-processor-cores-optimize/" itemprop="url">
+                  Полная оптимизация процессора в Windows 7/8
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-02-11T05:15:03+03:00">
+			2017-02-11
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-02-11T18:39:21+03:00">
+			2017-02-11
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/lifehacks/" itemprop="url" rel="index">
+                    <span itemprop="name">Лайфхаки</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2017-02/windows-processor-cores-optimize/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2017-02/windows-processor-cores-optimize/" itemprop="commentCount">2</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      736
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      6
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Настройка энергосбережения, разблокировка кол-ва ядер и включение кеша второго уровня для процессора без сторонних программ.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/windows-processor-cores-optimize.jpg" class="full-image" alt="Полная оптимизация процессора в Windows 7/8"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Может кто не в курсе, под Windows 7/8 в процессорах семейства Intel/Xeon по-дефолту имеется встроенная опция энергосбережения. И если у Вашего процессора более чем одно ядро, то суть вкратце такова: изначально работает 1-2 ядра, а остальные же ядра в так называемом режиме ожидания/на парковке. И если приложение требует больше мощностей процессора, винда начинает подключать следующие и/или повышать тактовую частоту текущего ядра. После того, как приложение отработалось — «лишние» процессоры отправляются обратно на парковку, а частота рабочего ядра снижается по причине простоя. Иными словами, работает функция энергосбережения, но и для обработки задач также требуется больше времени (частота то снижается, то повышается; ядро то подключается, то выключается).<br>В общем-то, если у Вас ноутбук, такая функция будет даже лучше хотя-бы для экономии заряда аккумулятора. Ну а если это десктопный компьютер, то, полагаю, разумнее потратить лишних пару киловатт, сэкономив при этом бесценное время и нервы.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2017-02/windows-processor-cores-optimize/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-10/centos-ftp-server-install/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-10/centos-ftp-server-install/" itemprop="url">
+                  Установка и настройка FTP сервера под CentOS
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-10-20T01:29:02+03:00">
+			2016-10-20
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-01-06T18:44:22+03:00">
+			2017-01-06
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-10/centos-ftp-server-install/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-10/centos-ftp-server-install/" itemprop="commentCount">0</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      520
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      4
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Небольшой мануал по установке/настройке «vsftpd» сервера под CentOS.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/centos-ftp-server-install.jpg" class="full-image" alt="Установка FTP сервера на CentOS"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Совсем недавно заглючил некий скрипт на пыхе. Скрипт был покупной, именно поэтому я решил не разбираться с ним, а напрямую обратиться в саппорт продавца для выяснения проблемы. Саппорт ответил коротко: нужен доступ к FTP — будем посмотреть. И вот тут я завис на пол минуты…</p>
+<p>Ведь фтп на моём Кенте не установлен, потому как работаю то я под SSH. Да ещё и <a href="https://almostover.ru/2016-02/ssh-login-with-certificate/" title="авторизируюсь не под паролем, а под сертификатом">авторизируюсь не под паролем, а под сертификатом</a>. Не могу же я просто так взять, и дать SSH-ключ, под которым потом можно будет входить на сервер постоянно. Да и даже если включить временно вход по паролю, зачем саппорту конкретного скрипта под конкретную кмс видеть весь мой сервер и то, что на нём расположено?</p>
+<p>Ну, думаю, как раз для таких особых случаев нужно фтпишечку то и поднять. <img src="./next_pisces_files/smirk.png" width="20" height="20" class=" emoji nofancybox" alt="smirk"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-10/centos-ftp-server-install/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-10/add-hypercomments-to-hexo-theme-next/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-10/add-hypercomments-to-hexo-theme-next/" itemprop="url">
+                  Гиперкомментарии для темы Next в Hexo
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-10-02T09:49:59+03:00">
+			2016-10-02
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-04-17T17:15:40+03:00">
+			2017-04-17
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-10/add-hypercomments-to-hexo-theme-next/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-10/add-hypercomments-to-hexo-theme-next/" itemprop="commentCount">19</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      866
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      6
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Заменяем «Disqus» на более продвинутые комментарии «Hypercomments» в теме «Next» на движке «Hexo».
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/hexo-theme-next-hypercomments.png" class="full-image" alt="Гиперкомментарии для темы Next в Hexo"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Не достаточно комментариев только в Facebook? Не устраивает функционал Disqus-комментариев? Хочется сделать комментирование анонимным или, хотя-бы, с возможностью логина через ВК? Всё это умеют гиперкомментарии, и ещё кое-что…</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-10/add-hypercomments-to-hexo-theme-next/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-09/keywords-statistics/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-09/keywords-statistics/" itemprop="url">
+                  Подбор ключевых слов для сайта
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-09-03T15:45:11+03:00">
+			2016-09-03
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2017-04-18T15:27:20+03:00">
+			2017-04-18
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Заметки</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-09/keywords-statistics/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-09/keywords-statistics/" itemprop="commentCount">0</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      20
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      1
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Памятка аддурилок для подбора ключевых слов.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Что такое <span class="exturl" data-url="aHR0cHM6Ly9ydS53aWtpcGVkaWEub3JnL3dpa2kvJUQwJUExJUQxJTgyJUQwJUIwJUQxJTgyJUQwJUI4JUQxJTgxJUQxJTgyJUQwJUI4JUQwJUJBJUQwJUIwXyVEMCVCNyVEMCVCMCVEMCVCRiVEMSU4MCVEMCVCRSVEMSU4MSVEMCVCRSVEMCVCMg=="><i class="fa fa-external-link"></i> статистика запросов</span> и для чего она нужна?.</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbQ==" title="https://trends.google.com"><i class="fa fa-external-link"></i> Google Trends</span>.</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hZHdvcmRzLmdvb2dsZS5jb20vS2V5d29yZFBsYW5uZXI=" title="https://adwords.google.com/KeywordPlanner"><i class="fa fa-external-link"></i> Статистика поиска Google</span>.</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93b3Jkc3RhdC55YW5kZXgucnU=" title="https://wordstat.yandex.ru"><i class="fa fa-external-link"></i> Статистика поиска Яндекс</span>.</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-08/schema-org-microdata-for-structured-data/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-08/schema-org-microdata-for-structured-data/" itemprop="url">
+                  Микроразметка Schema.org для поисковых сниппетов
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-08-27T08:35:52+03:00">
+			2016-08-27
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2016-10-16T04:33:37+03:00">
+			2016-10-16
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-08/schema-org-microdata-for-structured-data/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-08/schema-org-microdata-for-structured-data/" itemprop="commentCount">2</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      1,574
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      11
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Настраиваем микроразметку «Schema.org» для отображения структурированных данных в поисковиках в Hexo для темы Next.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/schema-org-microdata-for-structured-data.jpg" class="full-image" alt="Микроразметка Schema.org для поисковых сниппетов"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-08/schema-org-microdata-for-structured-data/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-08/fix-h1-to-h2-headings-in-posts-of-hexo-themes/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-08/fix-h1-to-h2-headings-in-posts-of-hexo-themes/" itemprop="url">
+                  Исправляем заголовки H1 на H2 у записей в темах Hexo
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-08-23T23:15:22+03:00">
+			2016-08-23
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2016-10-09T13:01:11+03:00">
+			2016-10-09
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-08/fix-h1-to-h2-headings-in-posts-of-hexo-themes/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-08/fix-h1-to-h2-headings-in-posts-of-hexo-themes/" itemprop="commentCount">4</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      811
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      6
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Устанавливаем правильную иерархию заголовков на записи в некоторых темах Hexo.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/fix-h1-to-h2-headings-in-posts-of-hexo-themes.png" class="full-image" alt="Исправляем заголовки H1 на H2 у записей в темах Hexo"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Правильная структура H1-H6 заголовков как имеет положительное влияние на SEO-оптимизацию, так и придаёт удобный структурированный вид записям, что несомненно привлекает внимание читателя и заметно облегчает работу писателя. В текущем руководстве приведены решения по исправлению заголовков в теме «Next» движка «Hexo».</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-08/fix-h1-to-h2-headings-in-posts-of-hexo-themes/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-08/return-old-vk-style-extension-for-chrome-and-firefox/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-08/return-old-vk-style-extension-for-chrome-and-firefox/" itemprop="url">
+                  Вернуть старый дизайн ВК — расширение Stylish для Chrome и Firefox
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-08-21T16:56:21+03:00">
+			2016-08-21
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2016-08-24T00:08:49+03:00">
+			2016-08-24
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/lifehacks/" itemprop="url" rel="index">
+                    <span itemprop="name">Лайфхаки</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-08/return-old-vk-style-extension-for-chrome-and-firefox/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-08/return-old-vk-style-extension-for-chrome-and-firefox/" itemprop="commentCount">0</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      450
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      4
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Привыкли к старому дизайну ВКонтакте? Легко и просто возвращаем его с помощью расширения для браузера.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/return-old-vk-style-extension-for-chrome-and-firefox.png" class="full-image" alt="Вернуть старый дизайн ВК — расширение Stylish для Chrome и Firefox"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Как многие знают, 17 августа 2016-ого года ВКонтакте окончательно изменила дизайн на новый, без предоставления переключаения на старый. Только вот многие люди попросту уже привыкли к старому дизайну, и этот лайфхак для них.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-08/return-old-vk-style-extension-for-chrome-and-firefox/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+
+	<div class="post-content">
+
+	<link itemprop="mainEntityOfPage" href="https://almostover.ru/2016-08/backup-files-and-databases-to-amazon-s3/">
+
+	<span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<meta itemprop="name" content="Ivan.Nginx">
+		<meta itemprop="description" content="«Don`t try»">
+		<meta itemprop="image" content="/ivan.nginx.png">
+	</span>
+
+	<span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Almost Over">
+		<span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+			<a href="./next_pisces_files/logo.png" class="fancybox" rel="group"><img style="display: none;" itemprop="url image" alt="Almost Over" src="./next_pisces_files/logo.png"></a>
+		</span>
+	</span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="https://almostover.ru/2016-08/backup-files-and-databases-to-amazon-s3/" itemprop="url">
+                  Бекап файлов и баз данных на Amazon S3
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+
+
+
+
+		<time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-08-17T21:09:31+03:00">
+			2016-08-17
+		</time>
+
+	&nbsp;|&nbsp;
+
+		<span class="post-meta-item-icon">
+			<i class="fa fa-calendar-check-o"></i>
+		</span>
+		<time title="Дата обновления записи" itemprop="dateModified" datetime="2016-09-13T18:30:55+03:00">
+			2016-09-13
+		</time>
+
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp;|&nbsp;
+
+	<span class="post-meta-item-icon">
+		<i class="fa fa-folder-o"></i>
+
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="https://almostover.ru/categories/manuals/" itemprop="url" rel="index">
+                    <span itemprop="name">Руководства</span>
+                  </a>
+                </span>
+	</span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                &nbsp;|&nbsp;
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="https://almostover.ru/2016-08/backup-files-and-databases-to-amazon-s3/#comments" itemprop="discussionUrl">
+                      <span class="post-comments-count hc-comment-count" data-xid="2016-08/backup-files-and-databases-to-amazon-s3/" itemprop="commentCount">0</span>
+                    </a>
+                  </span>
+              </span>
+              <!--/noindex-->
+
+            
+          
+
+
+
+
+
+
+
+
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Кол-во слов в статье -</span>
+                  
+                    <span>
+                      1,774
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Время чтения в минутах ~</span>
+                  
+                    <span>
+                      12
+                    </span>
+              
+            </div>
+          
+
+	
+		<div class="post-description">
+			Настройка автоматических резервных копий файлов и баз данных на удалённый сервер AWS S3 с помощью s3cmd под CentOS.
+		</div>
+	
+
+
+
+
+
+
+
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="./next_pisces_files/backup-files-and-databases-to-amazon-s3.jpg" class="full-image" alt="Бекап файлов и баз данных на Amazon S3"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
+<p>Как говорят в народе — существуют 2 категории админов: те, которые уже делают бекапы и те, которые об этом серьёзно задумываются. А к какой категории относитесь Вы?</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="https://almostover.ru/2016-08/backup-files-and-databases-to-amazon-s3/#more" rel="contents">
+              Читать полностью »
+            </a>
+          </div>
+          <!--/noindex-->
+
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+			</div>
+
+  </article>
+
+
+    
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="https://almostover.ru/page/2/">2</a><span class="space">…</span><a class="page-number" href="https://almostover.ru/page/4/">4</a><a class="extend next" rel="next" href="https://almostover.ru/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar" style="margin-top: 372px; display: block;">
+    <div class="sidebar-inner affix">
+
+      
+
+      
+
+      <div class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <!--<a href="/about/">-->
+          <img class="site-author-image" itemprop="image" src="./next_pisces_files/ivan.nginx.png" alt="Ivan.Nginx">
+          <p class="site-author-name" itemprop="name">Ivan.Nginx</p>
+          <!--</a>-->
+          <p class="site-description motion-element" itemprop="description">«Don`t try»</p>
+        </div>
+
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="https://almostover.ru/archives/">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">Архив</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="https://almostover.ru/categories/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">Категории</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="https://almostover.ru/tags/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">Тэги</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="https://almostover.ru/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+	<!--noindex-->
+          
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2l2YW4tbmdpbng=" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </span>
+              </span>
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="bWFpbHRvOml2YW4ubmdpbnhAZ21haWwuY29t" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </span>
+              </span>
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20vMTE2Mjc1MTg2ODQ2MjQ2NzE4MDMx" title="Google">
+                  
+                    <i class="fa fa-fw fa-google"></i>
+                  
+                  Google
+                </span>
+              </span>
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9pdmFuX25naW54" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </span>
+              </span>
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2FsbW9zdG92ZXIucnU=" title="FB Page">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  FB Page
+                </span>
+              </span>
+            
+              <span class="links-of-author-item">
+		<span class="exturl" data-url="aHR0cHM6Ly92ay5jb20vYWxtb3N0b3Zlcl9ydQ==" title="VK Group">
+                  
+                    <i class="fa fa-fw fa-vk"></i>
+                  
+                  VK Group
+                </span>
+              </span>
+            
+          
+	<!--/noindex-->
+        </div>
+
+        
+        
+
+        <!--
+<div class="custom-code motion element" style="margin-top: 20px; padding-top: 18px; border-top: 1px dotted #ccc;">
+
+<img src="https://informer.yandex.ru/informer/39072605/3_0_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0; cursor:pointer;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39072605" data-lang="ru" />
+
+</div>
+-->
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter39072605 = new Ya.Metrika({ id:39072605, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/39072605" style="position:absolute; left:-9999px;" alt="Яндекс.Метрика" /&gt;&lt;/div&gt;</noscript> <!-- /Yandex.Metrika counter -->
+
+      </div>
+
+      
+
+      
+        <div class="back-to-top back-to-top-on">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>8</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  ©  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlmostOver.ru</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="./next_pisces_files/index.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/jquery.lazyload.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/echo.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="./next_pisces_files/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="./next_pisces_files/utils.js"></script>
+
+  <script type="text/javascript" src="./next_pisces_files/motion.js"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="./next_pisces_files/affix.js"></script>
+
+  <script type="text/javascript" src="./next_pisces_files/pisces.js"></script>
+
+
+
+  
+    <script type="text/javascript" src="./next_pisces_files/scrollspy.js"></script>
+<script type="text/javascript" src="./next_pisces_files/post-details.js"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="./next_pisces_files/bootstrap.js"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 80511, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/80511/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+  
+
+  
+
+  
+  
+
+	
+
+
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./next_pisces_files/uN4_cXtJDGb.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div></body></html>

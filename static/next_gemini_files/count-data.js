@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"0 Comments","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"Travelling\/Top-of-London-and-Stay-in-Bath\/","comments":0},{"id":"Travelling\/Self-driving-tour-in-Bristol\/","comments":0},{"id":"Hexo\/Switch-from-dandyxu-com-to-dandyxu-me\/","comments":0},{"id":"Travelling\/The-Roman-Bath\/","comments":0},{"id":"Travelling\/Spring-Festival-Journey-with-Dr-Shu\/","comments":0},{"id":"Hexo\/How-to-update-Hexo-and-Hexo-theme-properly\/","comments":0},{"id":"Git\/How-to-use-Git-Submodule-to-manage-Hexo-themes\/","comments":0},{"id":"Travelling\/Watford-Junction-London-Harry-Potter\/","comments":0},{"id":"Travelling\/Day-7-in-Cornwall\/","comments":0},{"id":"Travelling\/GOT-Journey-in-Northern-Ireland\/","comments":0}]});
+}

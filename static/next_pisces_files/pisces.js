@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$(".header-inner").height()+CONFIG.sidebar.offset;$("#sidebar").css({"margin-top":e}).show()});$(window).resize(function(){var e=$(".header-inner").height()+CONFIG.sidebar.offset;$("#sidebar").css({"margin-top":e}).show()});
