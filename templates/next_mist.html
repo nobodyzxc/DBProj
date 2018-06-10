@@ -45,7 +45,7 @@
 
 
 
-    <link href="./next_mist_files/css" rel="stylesheet" type="text/css">
+    <link href="/static/next_mist_files/css" rel="stylesheet" type="text/css">
 
 
 
@@ -53,9 +53,9 @@
 
 
 
-<link href="./next_mist_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/static/next_mist_files/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<link href="./next_mist_files/main.css" rel="stylesheet" type="text/css">
+<link href="/static/next_mist_files/main.css" rel="stylesheet" type="text/css">
 
 
 
@@ -198,6 +198,7 @@
 
 
 
+  {% for post in posts %}
   <article class="post post-type-normal" itemscope="" itemtype="//schema.org/Article" style="opacity: 1; display: block; transform: translateY(0px);">
 
 
@@ -210,8 +211,8 @@
 
 
 
-              <a class="post-title-link" href="{{post_href}}" itemprop="url">
-                  {{post_title}}
+              <a class="post-title-link" href="/blog/{{user_name}}/{{post[0]}}" itemprop="url">
+                  {{post[0]}}
                 </a>
 
 
@@ -224,8 +225,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="{{post_time}}" content="{{post_time}}">
-            {{post_time}}
+            <time itemprop="dateCreated" datetime="{{post[1]}}" content="{{post[1]}}">
+            {{post[1]}}
             </time>
           </span>
 
@@ -255,7 +256,7 @@
         {{post_wedge}}
 
           <div class="post-more-link text-center">
-              <a class="btn" href="{{post_href}}" rel="contents">
+              <a class="btn" href="/blog/{{user_name}}/{{post[0]}}" rel="contents">
               閱讀全文 »
             </a>
           </div>
@@ -278,7 +279,7 @@
 
     </footer>
   </article>
-
+  {% endfor %}
 
   </section>
 
@@ -315,7 +316,7 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="./next_mist_files/avatar.gif" alt="J. F">
+          <img class="site-author-image" itemprop="image" src="/static/next_mist_files/avatar.gif" alt="J. F">
           <p class="site-author-name" itemprop="name">{{user_name}}</p>
           <p class="site-description motion-element" itemprop="description">Try · Enjoy · Documentary</p>
       </div>
@@ -400,7 +401,7 @@
 
           <div class="cc-license motion-element" itemprop="license">
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="./next_mist_files/cc-by-nc-sa.svg" alt="Creative Commons">
+              <img src="/static/next_mist_files/cc-by-nc-sa.svg" alt="Creative Commons">
             </a>
           </div>
 
@@ -430,7 +431,7 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{user_name}}</span>
-  <script async="" src="./next_mist_files/busuanzi.pure.mini.js"></script>
+  <script async="" src="/static/next_mist_files/busuanzi.pure.mini.js"></script>
   <span>
     <a href="http://service.ibruce.info/" target="_blank" class="sl fa fa-globe fa-spin"></a>
   </span>
@@ -476,29 +477,26 @@
 
 
 
-  <script type="text/javascript" src="./next_mist_files/index.js"></script>
+  <script type="text/javascript" src="/static/next_mist_files/index.js"></script>
 
 
-  <script type="text/javascript" src="./next_mist_files/jquery.lazyload.js"></script>
+  <script type="text/javascript" src="/static/next_mist_files/jquery.lazyload.js"></script>
 
 
-  <script type="text/javascript" src="./next_mist_files/velocity.min.js"></script>
+  <script type="text/javascript" src="/static/next_mist_files/velocity.min.js"></script>
 
 
-  <script type="text/javascript" src="./next_mist_files/velocity.ui.min.js"></script>
-
-
-
+  <script type="text/javascript" src="/static/next_mist_files/velocity.ui.min.js"></script>
 
 
 
 
-  <script type="text/javascript" src="./next_mist_files/utils.js"></script>
-
-  <script type="text/javascript" src="./next_mist_files/motion.js"></script>
 
 
 
+  <script type="text/javascript" src="/static/next_mist_files/utils.js"></script>
+
+  <script type="text/javascript" src="/static/next_mist_files/motion.js"></script>
 
 
 
@@ -507,7 +505,10 @@
 
 
 
-  <script type="text/javascript" src="./next_mist_files/bootstrap.js"></script>
+
+
+
+  <script type="text/javascript" src="/static/next_mist_files/bootstrap.js"></script>
 
 
 

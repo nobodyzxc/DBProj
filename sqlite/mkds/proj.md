@@ -89,8 +89,3 @@ pip install markdown2
    post_wedge
    post_content
    ```
-
-   Bonus :
-   - [header-ids](https://github.com/trentm/python-markdown2/wiki/header-ids)
-   - [header-ids ref](https://wxnacy.com/2017/09/06/python-2017-09-06-use-markdown/)
-   - [metadata](https://github.com/trentm/python-markdown2/wiki/metadata)

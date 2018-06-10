@@ -45,3 +45,6 @@ class UsersRepository:
         for n in self.users:
             print(users)
         print('"""')
+
+    def exist(self, user):
+        return user in self.users

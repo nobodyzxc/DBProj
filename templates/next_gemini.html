@@ -15,8 +15,7 @@
 
 
 
-<!--<script type="text/javascript" async="" src="./next_gemini_files/analytics.js">-->
-</script><script src="./next_gemini_files/push.js"></script><script src="./next_gemini_files/pace.min.js"></script>
+</script><script src="/static/next_gemini_files/push.js"></script><script src="/static/next_gemini_files/pace.min.js"></script>
 
 
 
@@ -27,26 +26,9 @@
 
 
 
+<link href="/static/next_gemini_files/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="./next_gemini_files/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-<link href="./next_gemini_files/main.css" rel="stylesheet" type="text/css">
+<link href="/static/next_gemini_files/main.css" rel="stylesheet" type="text/css">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -85,7 +67,7 @@
 
 
 
-<script async="" src="./next_gemini_files/js"></script>
+<script async="" src="/static/next_gemini_files/js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -126,7 +108,7 @@
   &lt;/style&gt;
 </noscript>
 
-<script src="./next_gemini_files/count-data.js"></script></head>
+<script src="/static/next_gemini_files/count-data.js"></script></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="en" class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
@@ -152,7 +134,7 @@
 
 
     <div class="custom-logo-site-title">
-      <a href="" class="brand" rel="start" style="opacity: 1;">
+      <a href="javascript:window.location.href=window.location.href" class="brand" rel="start" style="opacity: 1;">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title" style="opacity: 1; top: 0px;">{{blog_name}}</span>
         <span class="logo-line-after"><i></i></span>
@@ -200,7 +182,7 @@
 
 
 
-
+  {% for post in posts %}
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
 
 
@@ -224,7 +206,7 @@
 
           <h2 class="post-title" itemprop="name headline">
 
-              <a class="post-title-link" href="{{post_href}}" itemprop="url">{{post_title}}</a></h2>
+              <a class="post-title-link" href="/blog/{{user_name}}/{{post[0]}}" itemprop="url">{{post[0]}}</a></h2>
 
 
         <div class="post-meta">
@@ -236,7 +218,7 @@
 
                 <span class="post-meta-item-text">Posted on</span>
 
-                <time title="Post created" itemprop="dateCreated datePublished" datetime="{{post_time}}">{{post_time}}</time>
+                <time title="Post created" itemprop="dateCreated datePublished" datetime="{{post[1]}}">{{post[1]}}</time>
 
 
           </span>
@@ -256,7 +238,7 @@
             {{post_wedge}}
           <!--noindex-->
           <div class="post-button text-center">
-              <a class="btn" href="{{post_href}}" rel="contents">
+              <a class="btn" href="/blog/{{user_name}}/{{post[0]}}" rel="contents">
               Read more »
             </a>
           </div>
@@ -295,6 +277,8 @@
 
   </article>
 
+  {% endfor %}
+
   </section>
 
 <!--
@@ -331,7 +315,7 @@
         <div class="site-overview" style="max-height: 548px;">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 
-              <img class="site-author-image" itemprop="image" src="./next_mist_files/avatar.gif" alt="{{user_name}}">
+              <img class="site-author-image" itemprop="image" src="/static/next_mist_files/avatar.gif" alt="{{user_name}}">
 
               <p class="site-author-name" itemprop="name">{{user_name}}</p>
               <!--<p class="site-description motion-element" itemprop="description">Coding, Travelling, Reading and Enjoying</p>-->
@@ -570,36 +554,36 @@
 
 
 
-    <script type="text/javascript" src="./next_gemini_files/index.js"></script>
+    <script type="text/javascript" src="/static/next_gemini_files/index.js"></script>
 
 
 
 
-    <script type="text/javascript" src="./next_gemini_files/velocity.min.js"></script>
+    <script type="text/javascript" src="/static/next_gemini_files/velocity.min.js"></script>
 
 
 
 
-    <script type="text/javascript" src="./next_gemini_files/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="/static/next_gemini_files/velocity.ui.min.js"></script>
 
 
 
 
-    <script type="text/javascript" src="./next_gemini_files/canvas-nest.min.js"></script><canvas id="c_n10" width="1366" height="636" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+    <script type="text/javascript" src="/static/next_gemini_files/canvas-nest.min.js"></script><canvas id="c_n10" width="1366" height="636" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
 
 
 
 
-    <script type="text/javascript" src="./next_gemini_files/reading_progress.js"></script>
+    <script type="text/javascript" src="/static/next_gemini_files/reading_progress.js"></script>
 
 
 
 
 
 
-  <script type="text/javascript" src="./next_gemini_files/utils.js"></script>
+  <script type="text/javascript" src="/static/next_gemini_files/utils.js"></script>
 
-  <script type="text/javascript" src="./next_gemini_files/motion.js"></script>
+  <script type="text/javascript" src="/static/next_gemini_files/motion.js"></script>
 
 
 
@@ -607,9 +591,9 @@
 
 
 
-  <script type="text/javascript" src="./next_gemini_files/affix.js"></script>
+  <script type="text/javascript" src="/static/next_gemini_files/affix.js"></script>
 
-  <script type="text/javascript" src="./next_gemini_files/pisces.js"></script>
+  <script type="text/javascript" src="/static/next_gemini_files/pisces.js"></script>
 
 
 
@@ -618,14 +602,14 @@
 
 
 
-  <script type="text/javascript" src="./next_gemini_files/bootstrap.js"></script>
+  <script type="text/javascript" src="/static/next_gemini_files/bootstrap.js"></script>
 
 
 
 
 
 
-    <script id="dsq-count-scr" src="./next_gemini_files/count.js" async=""></script>
+    <script id="dsq-count-scr" src="/static/next_gemini_files/count.js" async=""></script>
 
 
 
@@ -663,7 +647,7 @@
 
 
 
-
+<!--
 <script>
 (function(){
     var bp = document.createElement('script');
@@ -678,6 +662,7 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
+-->
 
 
 
@@ -694,7 +679,7 @@
 
 
 
-  <script src="./next_gemini_files/bookmark.min.js"></script>
+  <script src="/static/next_gemini_files/bookmark.min.js"></script>
   <script type="text/javascript">
 
     bookmark.loadBookmark();

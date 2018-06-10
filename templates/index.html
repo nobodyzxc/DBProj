@@ -4,6 +4,11 @@
     <body>
         <h1>DB final project - markdown blog builder</h1>
         <a href='./login'>login/signup</a>
+        <ul>
+            {% for user in users %}
+            <li><a href='/blog/{{user}}'>{{user}}'s blog</a></li>
+            {% endfor %}
+        </ul>
     </body>
 </html>
 
