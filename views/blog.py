@@ -15,7 +15,7 @@ def home_page(user):
     posts = query(db_name,
             """
             select title, postdate from post
-                where blogname = """ + "'" + user + "'")
+                where owner = """ + "'" + user + "'")
     blogname, theme = get_blog_theme(user)
     return render_template('next_' + theme + '.html',
             user_name = user,
@@ -35,7 +35,7 @@ def user_post(user, title):
     post = query(db_name,
             """
             select title, postdate, content from post
-                where blogname = '%s' and
+                where owner = '%s' and
                       title = '%s'
                       """ % (user, title))
 
@@ -74,7 +74,7 @@ def theme_home_page(theme, user):
     posts = query(db_name,
             """
             select title, postdate from post
-                where blogname = """ + "'" + user + "'")
+                where owner = """ + "'" + user + "'")
     return render_template('next_' + theme + '.html',
             user_name = user,
             posts = posts,
@@ -90,7 +90,7 @@ def theme_user_post(theme, user, title):
     post = query(db_name,
             """
             select title, postdate, content from post
-                where blogname = '%s' and
+                where owner = '%s' and
                       title = '%s'
                       """ % (user, title))
 

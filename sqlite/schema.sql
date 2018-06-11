@@ -16,8 +16,8 @@ CREATE TABLE POST ( POSTID     INTEGER   PRIMARY KEY   AUTOINCREMENT,
                     TITLE      TEXT      NOT NULL,
                     CONTENT    TEXT      NOT NULL,
                     POSTDATE   DATE      NOT NULL,
-                    BLOGNAME   TEXT      NOT NULL,
-                    FOREIGN KEY(BLOGNAME) REFERENCES BLOG(BLOGNAME));
+		    OWNER      TEXT      NOT NULL,
+                    FOREIGN KEY(OWNER) REFERENCES USER(USERNAME));
 
 CREATE TABLE MESSAGE( MSGID     INTEGER   PRIMARY KEY   AUTOINCREMENT,
                       MSGDATE   DATE      NOT NULL,

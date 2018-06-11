@@ -12,7 +12,7 @@ for mkd in mkds:
     f = open(mypath + '/' + mkd, 'r')
     post = f.read()
     for user in [u + 'dmin' for u in "abcd"]:
-        command = "INSERT INTO POST (TITLE, CONTENT, POSTDATE, BLOGNAME) VALUES ('%s','%s', '2018-01-01 10:00:00', '%s');" % (mkd, post, user)
+        command = "INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER) VALUES ('%s','%s', '2018-01-01 10:00:00', '%s');" % (mkd, post, user)
         cursor.execute(command)
 
 conn.commit()
