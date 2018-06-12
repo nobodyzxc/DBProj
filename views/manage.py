@@ -10,4 +10,12 @@ manage_pages = Blueprint('manage_pages', __name__,
 @manage_pages.route('/manage')
 @login_required
 def manage():
-    return render_template('manage.html', name = current_user.username)
+    posts = query(db_name,# load articles
+            """
+            select title
+            from post
+            where owner = """ + "'" + current_user.username + "'")
+    posts = list(map(lambda x: x[0], posts))
+    # delete function
+    return render_template('manage.html', name = current_user.username,
+                           articles = posts)
