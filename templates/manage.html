@@ -4,13 +4,21 @@
     <body>
         <h1>user console</h1>
         <p> hello! {{ name }}</p>
-        <p>here are your posts</p>
-        <ul>
-            {% for article in articles %}
-            <li><a href='/blog/{{name}}/{{article}}'>{{article}}</a></li>
-            {% endfor %}
-        </ul>
         <a href='./config'>config</a>
-        <p>posts...</p>
+        <p>here are your posts</p>
+        <table width="80%" border="1">
+            <tr>
+              <td>post_id</td>
+              <td>post</td>
+              <td>post_date</td>
+            </tr>
+            {% for i in length %}
+            <tr>
+              <td width="20%">{{postid[i]}}</td>
+              <td width="40%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
+              <td width="40%">{{date[i]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>

@@ -12,10 +12,18 @@ manage_pages = Blueprint('manage_pages', __name__,
 def manage():
     posts = query(db_name,# load articles
             """
-            select title
+            select postid, title, postdate
             from post
             where owner = """ + "'" + current_user.username + "'")
-    posts = list(map(lambda x: x[0], posts))
+    postid = []
+    title = []
+    date = []
+    for pid, tit, dat in posts:
+        postid.append(pid)
+        title.append(tit)
+        date.append(dat)
+    length = list(range(len(title)))
+    #posts = list(map(lambda x: x[0], posts))
     # delete function
     return render_template('manage.html', name = current_user.username,
-                           articles = posts)
+                           title = title, postid = postid, date = date, length = length)
