@@ -5,27 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>config</title>
         <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<!--        <link href="/templates/dist/css/BsMultiSelect.css" rel="stylesheet">-->
         <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/BsMultiSelect.css') }}" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     </head>
     <body>
         
         <h1>config</h1>
-        <div class="container">
-            <select name="states" id="example" class="form-control"  multiple="multiple" style="display: none;">
-                            <option value="test1">test1</option>
-                            <option value="test2">test2</option>
-                            <option value="test3">test3</option>
-            </select>
-        </div>
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', filename='dist/js/BsMultiSelect.js') }}"></script>
-        <script>$("select").dashboardCodeBsMultiSelect();</script>
-        
-        <a href='./manage'>save</a>
+        <form method="POST">
+            <div class="container"> 
+                {% for i in range(0,allLayout.__len__()) %}
+<!--                    <h3>{{ LayoutTitle[i] }}</h3>-->
+                    <select name="allLayout" method="GET" action="/">
+                        {% for j in range(0,allLayout[i].__len__()) %}
+                            <option value="{{allLayout[i][j]}}">{{allLayout[i][j]}}</option>"
+                        {% endfor %}
+                    </select>
+                    <hr>
+                {% endfor %}
+            </div>
+            
+            
+            <input type=submit value=save>
+            <br>
+            <a href='./manage'>back</a>
+        </form>
     </body>
 </html>
