@@ -4,17 +4,23 @@
     <meta charset="utf-8" />
     <title>Simple example</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}" />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
         <h2>文章編輯器</h2>
+        <br>
+        <div class="input-group">
+            <div id=postid style='display:none'>{{postid}}</div>
+            <span class="input-group-addon">標題</span>
+            <input id="msg" type="text" class="form-control" name="msg" placeholder={{title}}>
+        </div>
         <div id="test-editormd">
-                <textarea style="display:none;">{{mkd}}</textarea>
+            <textarea style="display:none;" id="mkd">{{mkd}}</textarea>
         </div>
         <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
         <script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
@@ -30,7 +36,48 @@
                 });
             });
         </script>
-        <button type="button" class="btn btn-secondary float-right">文章儲存</button>
+        <button type="button" class="btn btn-secondary float-right" id="submit">文章儲存</button>
+        <script>
+			$('#submit').click(function(){
+				var title = $('#msg').val();
+				var mkd = $('#mkd').val();
+                var postid = $('#postid').text();
+                console.log("post",postid)
+                console.log(title, ":", title.length)
+                console.log(mkd)
+                if (title.length==0) {
+                    $.ajax({
+                        url: './editor/update_post',
+                        data: {'mkd': mkd,
+                               'postid':postid},
+                        method: 'POST',
+                        success: function(data) {
+                            console.log(data)
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: './editor/update_all',
+                        data: {'mkd': mkd,
+                               'title': title,
+                               'postid':postid},
+                        method: 'POST',
+                        success: function(data) {
+                            console.log(data)
+                        }
+                    });
+                }
+				// $.ajax({
+				// 	url: './editor/delete_post',
+				// 	data: {'number': number},
+				// 	method: 'POST',
+				// 	success: function(data) {
+				// 		$('#num').val('');
+				// 		$('#square').html('Square of ' + number + ' is ' + data['square'])
+				// 	}
+				// });
+			});
+		</script>
     </div>
 </body>
 
