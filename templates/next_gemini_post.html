@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0019)https://dandyxu.me/ -->
+<link href="/static/pygments-css/friendly.css" rel="stylesheet" type="text/css">
+
 <html class="theme-next gemini use-motion" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -109,7 +111,7 @@
   &lt;/style&gt;
 </noscript>
 
-<script src="/static/next_gemini_files/count-data.js"></script></head>
+<!--<script src="/static/next_gemini_files/count-data.js"></script></head>-->
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="en" class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
@@ -135,7 +137,7 @@
 
 
     <div class="custom-logo-site-title">
-      <a href="javascript:window.location.href=window.location.href" class="brand" rel="start" style="opacity: 1;">
+        <a href="/blog/{{blog_name}}" class="brand" rel="start" style="opacity: 1;">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title" style="opacity: 1; top: 0px;">{{blog_name}}</span>
         <span class="logo-line-after"><i></i></span>
@@ -280,6 +282,16 @@
 
 
           </div>
+          <!-- comment here -->
+            <div id="comment"></div>
+            <script src="/static/js/jquery.min.js"></script>
+            {% with post_id = post_id %}
+            {% include 'comment.html' %}
+            {% endwith %}
+
+
+
+                    <!-- comment end  -->
 
 
         </div>
@@ -309,6 +321,8 @@
               <img class="site-author-image" itemprop="image" src="/static/next_mist_files/avatar.gif" alt="{{user_name}}">
 
               <p class="site-author-name" itemprop="name">{{user_name}}</p>
+
+              {{post_tocs|safe}}
               <!--<p class="site-description motion-element" itemprop="description">Coding, Travelling, Reading and Enjoying</p>-->
           </div>
 
@@ -669,13 +683,14 @@
 
 
 
-
+    <!--
   <script src="/static/next_gemini_files/bookmark.min.js"></script>
   <script type="text/javascript">
 
     bookmark.loadBookmark();
 
-  </script>
+</script>
+-->
 
 
 </body></html>

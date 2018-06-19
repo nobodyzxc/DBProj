@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for
-from flask_login import login_required, current_user, login_user, LoginManager
+from flask import Blueprint, render_template, request, redirect, flash, url_for, Response
+from flask_login import login_required, current_user, login_user, LoginManager, logout_user
 
 from module.security import hash_password, check_password
 from app import app, users, db_name
+from urllib.parse import urlencode, quote_plus
 
 login_manager = LoginManager()
 
@@ -17,6 +18,17 @@ def load_user(userid):
 # -> provide login function
 @login_pages.route('/login', methods=['GET' , 'POST'])
 def login():
+    if not current_user.is_anonymous:
+        return redirect(url_for('manage_pages.manage'))
+
+    next_href = request.args.get("next", default = None)
+    relog_href = '/login'
+    if next_href:
+        relog_href = '/login?' + urlencode(
+                {'next':request.args["next"]},
+                quote_via=quote_plus)
+
+    print(next_href)
     if request.method == 'POST':
         sign = request.form['sign']
         username = request.form['username']
@@ -32,20 +44,28 @@ def login():
         elif sign == 'in':
             if user != None and check_password(user.hashedpw, password):
                 login_user(user)
-                print(user.username + "loggined")
-                return redirect(url_for('manage_pages.manage'))
+                
+                print(next_href)
+                if next_href:
+                    return redirect(next_href)
+                else:
+                    return redirect(url_for('manage_pages.manage'))
             else:
-                return render_template('login.html', info = 'signin failed')
+                return render_template('login.html',
+                        info = 'signin failed',
+                        relog_href = relog_href)
         else:
             Response("Invalid signin/signup form")
     else:
-        return render_template('login.html', info = "no post data")
+        return render_template('login.html',
+                info = "no post data",
+                relog_href = relog_href)
 
 # -> provide logout function
 @login_pages.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('/'))
+    return redirect(url_for('login_pages.login'))
 
 @login_pages.route('/users')
 def user_list():

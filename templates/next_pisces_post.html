@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0022)https://almostover.ru/ -->
+<link href="/static/pygments-css/friendly.css" rel="stylesheet" type="text/css">
+
 <html class="theme-next pisces" lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -574,6 +576,13 @@
 -->
           </div>
           
+                    <!-- comment here -->
+                    <div id="comment"></div>
+                    <script src="/static/js/jquery.min.js"></script>
+                    {% with post_id = post_id %}
+                    {% include 'comment.html' %}
+                    {% endwith %}
+                    <!-- comment end  -->
 
 
           
@@ -602,7 +611,8 @@
           <!--<a href="/about/">-->
 		 <img class="site-author-image" itemprop="image" src="/static/next_mist_files/avatar.gif" alt=""> 
           <p class="site-author-name" itemprop="name">{{user_name}}</p>
-          <!--</a>-->
+          {{post_tocs|safe}}
+
         </div>
 
 <!--

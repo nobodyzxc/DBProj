@@ -1,8 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for, abort
+from flask import Blueprint, render_template, request, redirect, flash, url_for, abort, Response
 from flask_login import current_user
 from app import app, users, db_name
-from module.db import query
+from module.db import query, alter
+from module.user import User
 import markdown2
+from urllib.parse import urlencode, quote_plus
+import time
 
 blog_pages = Blueprint('blog_pages', __name__,
                         template_folder='templates')
@@ -34,7 +37,7 @@ def user_post(user, title):
         return abort(404)
     post = query(db_name,
             """
-            select title, postdate, content from post
+            select title, postdate, content, postid from post
                 where owner = '%s' and
                       title = '%s'
                       """ % (user, title))
@@ -42,8 +45,11 @@ def user_post(user, title):
     if post == []:
         return abort(404)
 
-    mkd = markdown2.markdown(post[0][2], extras=["header-ids", "fenced-code-blocks"])
 
+    mkd = markdown2.markdown(post[0][2], extras=["header-ids", "fenced-code-blocks","tables"])
+    markdown_html = markdown2.markdown(post[0][2], extras=["toc","fenced-code-blocks","tables"])
+    toc = markdown_html.toc_html
+    
     blogname, theme = get_blog_theme(user)
 
     return render_template(
@@ -54,7 +60,10 @@ def user_post(user, title):
             post_time = post[0][1],
             post_content = mkd,
             blog_name = blogname,
-            post_wedge = '\n')
+            blog_href = '/blog/' + user,
+            post_id = post[0][3],
+            post_wedge = '\n',
+            post_tocs = toc)
 
 def get_blog_theme(user):
     return query(db_name,
@@ -89,7 +98,7 @@ def theme_user_post(theme, user, title):
         return abort(404)
     post = query(db_name,
             """
-            select title, postdate, content from post
+            select title, postdate, content,postid from post
                 where owner = '%s' and
                       title = '%s'
                       """ % (user, title))
@@ -97,7 +106,9 @@ def theme_user_post(theme, user, title):
     if post == []:
         return abort(404)
 
-    mkd = markdown2.markdown(post[0][2], extras=["header-ids", "fenced-code-blocks"])
+    mkd = markdown2.markdown(post[0][2], extras=["header-ids", "fenced-code-blocks","tables"])
+    markdown_html = markdown2.markdown(post[0][2], extras=["toc","fenced-code-blocks","tables"])
+    toc = markdown_html.toc_html
 
     return render_template(
             'next_' + theme + '_post.html',
@@ -106,6 +117,60 @@ def theme_user_post(theme, user, title):
             post_href = '/blog/' + user + '/' + title,
             post_time = post[0][1],
             post_content = mkd,
+            post_id = post[0][3],
             blog_name = get_blog_theme(user)[0],
-            post_wedge = '\n')
+            blog_href = '/blog/' + user,
+            post_wedge = '\n',
+            post_tocs = toc)
 
+
+@blog_pages.route('/message/<int:post_id>')
+def get_post_message(post_id, methods=['GET']):
+    print(post_id)
+    print(current_user.is_anonymous)
+    loging = not current_user.is_anonymous
+    msgs = query(db_name,
+            """
+            select poster, msgdate, content from message
+                where postid = '%s'
+                order by msgdate desc
+                """ % (post_id))
+
+    msgs = [(a,b,markdown2.markdown(c, extras=["header-ids", "fenced-code-blocks"])) for (a,b,c) in msgs]
+
+    next_href = '/login?' + urlencode(
+            {'next':request.args["next"]},
+            quote_via=quote_plus)
+
+    return render_template('message.html',
+            messages = msgs,
+            logining = loging,
+            post_id = post_id,
+            prev_href =
+            request.args.get("next", default=""),
+            submit_url =
+            ("/message_upload" if loging else '/login'),
+            submit_btn_name =
+            ("留言" if loging else "登入"),
+            method =
+            ("post" if loging else "get"),
+            msg_count = len(msgs)
+            )
+
+@blog_pages.route('/message_upload', methods=['POST'])
+def upload_message():
+    postid = request.form.get("postid", default = None)
+    content = request.form.get("content", default=None)
+
+    if current_user.is_anonymous \
+            or not postid or not content:
+        return abort(403)
+
+    alter(db_name, """
+           INSERT INTO MESSAGE
+            (MSGDATE, POSTER, CONTENT, POSTID) VALUES
+            ('%s','%s', '%s', '%s');
+           """ % (time.strftime('%Y-%m-%d %H:%M:%S'),
+               current_user.get_username(),
+               content, postid))
+    return Response("ok")

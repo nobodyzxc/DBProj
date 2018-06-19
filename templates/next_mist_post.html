@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0053)https://blog.zzbd.org/2017/07/11/hexo-render-md/#more -->
+<link href="/static/pygments-css/friendly.css" rel="stylesheet" type="text/css">
 <html class="theme-next mist use-motion"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -59,7 +60,6 @@
 
 
 
-
   <link rel="shortcut icon" type="image/x-icon" href="https://blog.zzbd.org/favicon.ico?v=5.0.2">
 
 
@@ -76,9 +76,6 @@
 </script>
 
 
-
-
-  <link rel="canonical" href="https://blog.zzbd.org/2017/07/11/hexo-render-md/blog.zzbd.org/2017/07/11/hexo-render-md/">
 
 
   <title> {{post_title}} </title>
@@ -110,7 +107,7 @@
 
 
   <div class="custom-logo-site-title">
-    <a href="https://blog.zzbd.org/" class="brand" rel="start" style="opacity: 1;">
+      <a href="{{blog_href}}" class="brand" rel="start" style="opacity: 1;">
       <span class="logo-line-before"><i class="" style="transform: translateX(100%);"></i></span>
       <span class="site-title" style="opacity: 1; top: 0px;">{{blog_name}}</span>
       <span class="logo-line-after"><i class="" style="transform: translateX(-100%);"></i></span>
@@ -243,7 +240,6 @@
 
 
       <div class="post-body" itemprop="articleBody">
-          
         {{post_content|safe}}
     </div>
 
@@ -302,14 +298,13 @@
 
           </div>
 
-    <!--
-    <div class="feed-link text-center">
-      <a href="https://blog.zzbd.org/about/">
-        给我留言
-        <i class="fa fa-spinner fa-spin"></i>
-      </a>
-  </div>
-    -->
+                    <!-- comment here -->
+                    <div id="comment"></div>
+                    <script src="/static/js/jquery.min.js"></script>
+                    {% with post_id = post_id %}
+                    {% include 'comment.html' %}
+                    {% endwith %}
+                    <!-- comment end  -->
 
 
 
@@ -335,10 +330,10 @@
 
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc " data-target="post-toc-wrap">
-            文章目录
+            文章目錄
           </li>
           <li class="sidebar-nav-overview  sidebar-nav-active " data-target="site-overview">
-            站点概览
+            站點概覽
           </li>
         </ul>
 
@@ -357,9 +352,7 @@
           <div class="post-toc" style="max-height: 536px; width: calc(100% + 15px);">
 
 
-
-
-              <p class="post-toc-empty">此文章未包含目录</p>
+              {{post_tocs|safe}}
 
           </div>
         </section>

@@ -1,6 +1,8 @@
-# DB final project - markdown blog builder
+# DB final project
 
-## Start
+> markdown blog builder
+
+### Start
 
 To run this project, you need
 
