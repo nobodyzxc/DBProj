@@ -1,34 +1,78 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>config</title>
-        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/BsMultiSelect.css') }}" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    </head>
-    <body>
-        
-        <h1>config</h1>
-        <form method="POST">
-            <div class="container"> 
-                    <select name="allLayout" method="GET" action="/">
-                        {% for layout in allLayout %}
-                            {% if layout[0] == currentLay %}
-                                <option value="{{layout[0]}}" selected>{{layout[0]}}</option>"
-                            {% else %}
-                                <option value="{{layout[0]}}">{{layout[0]}}</option>"
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <hr>
-            </div>
-            
-            
-            <input type=submit value=save>
-            <br>
-            <a href='./manage'>back</a>
-        </form>
-    </body>
+<title>config</title>
+<!--
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+-->
+<link href="/static/index.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="/static/select.css" rel="stylesheet" type="text/css">
+<!--
+
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/BsMultiSelect.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+-->
+<style>
+button:hover{
+    color:black;
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:white;
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/"><i class="fab fa-blogger"></i></a>
+        <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
+        <a style="float:right" href="/manage">Back</a>
+        <button style="float:right" form="theme" type="submit" value="save"><a>Save</a></button>
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+    <center>
+    <div style="position:relative;width: 800px;height: 290px;">
+        <div>
+            <iframe id="demoFrame" src="/blog/{{user}}" width="800" height="320" scrolling="no"></iframe>
+        </div>
+        <div style="position: absolute;top:0;left:0;width: 800px;height:290px;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
+    </div><br><br><br><br>
+    <form id="theme" method="POST">
+        <div class="container">
+            <select class='select-box' id="themeBox" name="allLayout" method="GET" action="/">
+                {% for layout in allLayout %}
+                {% if layout[0] == currentLay %}
+                <option value="{{layout[0]}}" selected>{{layout[0]}}</option>"
+                {% else %}
+                <option value="{{layout[0]}}">{{layout[0]}}</option>"
+                {% endif %}
+                {% endfor %}
+            </select>
+            <hr>
+        </div>
+        <br>
+    </form>
+    </center>
+</body>
+<script>
+    document.getElementById("themeBox").onchange = function(){
+        document.getElementById("demoFrame").src = "/ex/" + this.value + "/{{user}}";
+    };
+</script>
+
 </html>

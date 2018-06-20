@@ -4,8 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Sign-Up/Login Form</title>
+        <link href="/static/index.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <style>
 *, *:before, *:after {
@@ -17,8 +19,7 @@ html {
 }
 
 body {
-    background: #c1bdba;
-    font-family: 'Titillium Web', sans-serif;
+/*    background: #c1bdba; */
 }
 
 a {
@@ -31,6 +32,7 @@ a:hover {
 }
 
 .form {
+    font-family: 'Titillium Web', sans-serif;
     background: rgba(19, 35, 47, 0.9);
     padding: 40px;
     max-width: 600px;
@@ -187,12 +189,17 @@ textarea {
     </head>
 
     <body>
+        <div class="navbar">
+            <a href="/"><i class="fab fa-blogger"></i></a>
+            <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
+        </div>
 
+        <br><br>
         <div class="form">
 
             <ul class="tab-group">
-                <li class="tab active"><a href="#login">Log In</a></li>
-                <li class="tab "><a href="#signup">Sign Up</a></li>
+                <li class="tab active"><a id="login_tag" href="#login">Log In</a></li>
+                <li class="tab"><a id="signup_tab" href="#signup">Sign Up</a></li>
             </ul>
 
             <div class="tab-content">
@@ -216,7 +223,7 @@ textarea {
                             <input name="password" type="password"required autocomplete="off"/>
                         </div>
 
-                        <span style="color:red">{{ info }}</span>
+                        <span style="color:red" size="50">{{ info }}</span>
                         <p class="forgot"><a href="#">Forgot Password?</a></p>
 
                         <button class="button button-block"/>Log In</button>
@@ -230,11 +237,19 @@ textarea {
 
                     <form action="./login" method="post">
                         <input type=hidden name=sign value=up>
+
                         <div class="field-wrap">
                             <label>
-                                New Account<span class="req">*</span>
+                                Blog Name<span class="req">*</span>
                             </label>
-                            <input id="fuck" name="username" type="text" required autocomplete="off"/>
+                            <input name="blogname" type="text" required autocomplete="off"/>
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                New Userame<span class="req">*</span>
+                            </label>
+                            <input name="username" type="text" required autocomplete="off"/>
                         </div>
 
                         <div class="field-wrap">
@@ -251,7 +266,7 @@ textarea {
 
                 </div>
 
-                
+
 
             </div><!-- tab-content -->
 
@@ -261,6 +276,13 @@ textarea {
 
 
         <script>
+            $(document).ready(function(){
+                var url = document.URL;
+                var id = url.substring(url.lastIndexOf('#') + 1);
+                if(id == "signup"){
+                    document.getElementById("signup_tab").click();
+                }
+            });
             $('.form').find('input, textarea').on('input blur focus', function (e) {
 
                 var $this = $(this),

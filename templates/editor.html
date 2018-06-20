@@ -1,84 +1,124 @@
 <html lang="zh">
 
-<head>
-    <meta charset="utf-8" />
-    <title>Simple example</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-        crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple example</title>
 
-<body>
-    <div class="container">
-        <h2>文章編輯器</h2>
-        <br>
-        <div class="input-group">
-            <div id=postid style='display:none'>{{postid}}</div>
-            <span class="input-group-addon">標題</span>
-            <input id="msg" type="text" class="form-control" name="msg" placeholder={{title}}>
-        </div>
-        <div id="test-editormd">
-            <textarea style="display:none;" id="mkd">{{mkd}}</textarea>
-        </div>
-        <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-        <script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
-        <script type="text/javascript">
-            var testEditor;
+        <!-- modify -->
+        <link href="/static/index.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <!--   end  -->
+        <link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}" />
+        <!-- uncomment
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <!-- modify add here -->
+        <style>
+button:hover{
+    color:black;
+}
 
-            $(function () {
-                testEditor = editormd("test-editormd", {
-                    width: "100%",
-                    height: 640,
-                    syncScrolling: "single",
-                    path: "{{ url_for('static',filename='editormd/lib/') }}"
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:white;
+}
+
+        </style>
+        <!-- end -->
+    </head>
+
+    <body>
+
+        <!-- modify add -->
+        <div class="navbar">
+            <a href="/"><i class="fab fa-blogger"></i></a>
+            <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
+            <a style="float:right" href="/manage">Back</a>
+            <button style="float:right" form="theme" type="submit" value="save" id="submit"><a>Save</a></button>
+        </div>
+        <!-- end -->
+
+        <div class="container">
+            <h2>文章編輯器</h2>
+            <br>
+            <div class="input-group">
+                <div id=postid style='display:none'>{{postid}}</div>
+                <span class="input-group-addon">標題</span>
+                <input id="msg" type="text" class="form-control" name="msg" placeholder={{title}}>
+            </div>
+            <div id="test-editormd">
+                <textarea style="display:none;" id="mkd">{{mkd}}</textarea>
+            </div>
+            <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+            <script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
+            <script type="text/javascript">
+                var testEditor;
+
+                $(function () {
+                    testEditor = editormd("test-editormd", {
+                        width: "100%",
+                        height: 640,
+                        syncScrolling: "single",
+                        path: "{{ url_for('static',filename='editormd/lib/') }}"
+                    });
                 });
-            });
-        </script>
-        <button type="button" class="btn btn-secondary float-right" id="submit">文章儲存</button>
-        <script>
-			$('#submit').click(function(){
-				var title = $('#msg').val();
-				var mkd = $('#mkd').val();
-                var postid = $('#postid').text();
-                console.log("post",postid)
-                console.log(title, ":", title.length)
-                console.log(mkd)
-                if (title.length==0) {
-                    $.ajax({
-                        url: './editor/update_post',
-                        data: {'mkd': mkd,
-                               'postid':postid},
-                        method: 'POST',
-                        success: function(data) {
-                            console.log(data)
-                        }
-                    });
-                } else {
-                    $.ajax({
-                        url: './editor/update_all',
-                        data: {'mkd': mkd,
-                               'title': title,
-                               'postid':postid},
-                        method: 'POST',
-                        success: function(data) {
-                            console.log(data)
-                        }
-                    });
-                }
-				// $.ajax({
-				// 	url: './editor/delete_post',
-				// 	data: {'number': number},
-				// 	method: 'POST',
-				// 	success: function(data) {
-				// 		$('#num').val('');
-				// 		$('#square').html('Square of ' + number + ' is ' + data['square'])
-				// 	}
-				// });
-			});
-		</script>
-    </div>
-</body>
+            </script>
+            <!--
+                <button type="button" class="btn btn-secondary float-right" id="submit">文章儲存</button>
+            -->
+            <script>
+                $('#submit').click(function(){
+                    var title = $('#msg').val();
+                    var mkd = $('#mkd').val();
+                    var postid = $('#postid').text();
+                    console.log("post",postid)
+                    console.log(title, ":", title.length)
+                    console.log(mkd)
+                    if (title.length==0) {
+                        $.ajax({
+                            url: './editor/update_post',
+                            data: {'mkd': mkd,
+                                'postid':postid},
+                            method: 'POST',
+                            success: function(data) {
+                                console.log(data)
+                            }
+                        });
+                    } else {
+                        $.ajax({
+                            url: './editor/update_all',
+                            data: {'mkd': mkd,
+                                'title': title,
+                                'postid':postid},
+                            method: 'POST',
+                            success: function(data) {
+                                console.log(data)
+                            }
+                        });
+                    }
+                    // $.ajax({
+                    // 	url: './editor/delete_post',
+                    // 	data: {'number': number},
+                    // 	method: 'POST',
+                    // 	success: function(data) {
+                    // 		$('#num').val('');
+                    // 		$('#square').html('Square of ' + number + ' is ' + data['square'])
+                    // 	}
+                    // });
+                });
+            </script>
+        </div>
+    </body>
 
 </html>

@@ -21,9 +21,12 @@ def page_not_found(e):
 # -> login, and blog available
 @app.route('/')
 def index():
+    name = "" if current_user.is_anonymous else current_user.get_username()
     return render_template('index.html',
             users = users.users,
-            user_list = [k for k in users.users])
+            user_list = [k for k in users.users],
+            logging = not current_user.is_anonymous,
+            name = name)
 
 @app.route('/test')
 def test():

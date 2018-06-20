@@ -1,29 +1,41 @@
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="/static/index.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
     <body>
+        <div class="navbar">
+            <a href="/"><i class="fab fa-blogger"></i></a>
+            <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
+            <a style="float:right" href="/logout">Logout</a>
+            <a style="float:right" href="/config">Config</a>
+            <a style="float:right" href="/blog/{{name}}">MyBlog</a>
+        </div>
+        <br><br>
+
         <h1>user console</h1>
         <p> hello! {{ name }}</p>
         <a href='./config'>config</a>
         <p>here are your posts</p>
         <table width="80%" border="1">
             <tr>
-              <td>post_id</td>
-              <td>post</td>
-              <td>post_date</td>
+                <td>post_id</td>
+                <td>post</td>
+                <td>post_date</td>
             </tr>
             {% for i in length %}
             <tr>
-              <td width="20%">{{postid[i]}}</td>
-              <td width="40%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
-              <td width="40%">{{date[i]}}</td>
+                <td width="20%">{{postid[i]}}</td>
+                <td width="40%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
+                <td width="40%">{{date[i]}}</td>
             </tr>
             {% endfor %}
         </table>
         <p>delete post</p>
         <form action="./manage/delete_post" method="post">
             <p><input type=text name=postid placeholder="Enter post id">
-            <p><input type=submit value=Submit>
+                <p><input type=submit value=Submit>
         </form>
     </body>
 </html>

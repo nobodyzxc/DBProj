@@ -42,11 +42,33 @@ def alter(db_name, alter_str):
         print("no such db : " + db_name)
         exit(0)
 
+def va_alter(db_name, alter_str, *args):
+    if(os.path.isfile(db_name)):
+        conn = sqlite3.connect(db_name)
+        conn.cursor().execute(alter_str, tuple(args))
+        conn.commit()
+        conn.close()
+    else:
+        print("no such db : " + db_name)
+        exit(0)
+
 def query(db_name, query_str):
     if(os.path.isfile(db_name)):
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
         cur.execute(query_str)
+        ret = cur.fetchall()
+        conn.close()
+        return ret
+    else:
+        print("no such db : " + db_name)
+        exit(0)
+
+def va_query(db_name, query_str, *args):
+    if(os.path.isfile(db_name)):
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        cur.execute(query_str, args)
         ret = cur.fetchall()
         conn.close()
         return ret

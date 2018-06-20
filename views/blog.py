@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for, abort, Response
 from flask_login import current_user
 from app import app, users, db_name
-from module.db import query, alter
+from module.db import va_query, va_alter
 from module.user import User
 import markdown2
 from urllib.parse import urlencode, quote_plus
@@ -15,10 +15,11 @@ blog_pages = Blueprint('blog_pages', __name__,
 def home_page(user):
     if not users.exist(user):
         return abort(404)
-    posts = query(db_name,
+    posts = va_query(db_name,
             """
             select title, postdate from post
-                where owner = """ + "'" + user + "'")
+                where owner = ?
+                """, user)
     blogname, theme = get_blog_theme(user)
     return render_template('next_' + theme + '.html',
             user_name = user,
@@ -35,12 +36,12 @@ def home_page(user):
 def user_post(user, title):
     if not users.exist(user):
         return abort(404)
-    post = query(db_name,
+    post = va_query(db_name,
             """
             select title, postdate, content, postid from post
-                where owner = '%s' and
-                      title = '%s'
-                      """ % (user, title))
+                where owner = ? and
+                      title = ?
+                      """, user, title)
 
     if post == []:
         return abort(404)
@@ -66,11 +67,11 @@ def user_post(user, title):
             post_tocs = toc)
 
 def get_blog_theme(user):
-    return query(db_name,
+    return va_query(db_name,
             """
             select blogname, layoutname from blog
-                where owner = '%s'
-                """ % (user))[0]
+                where owner = ?
+                """, user)[0]
 
 #### FOR TEST ####
 
@@ -80,10 +81,11 @@ def theme_home_page(theme, user):
         return abort(404)
     if not users.exist(user):
         return abort(404)
-    posts = query(db_name,
+    posts = va_query(db_name,
             """
             select title, postdate from post
-                where owner = """ + "'" + user + "'")
+                where owner = ?
+                """, user)
     return render_template('next_' + theme + '.html',
             user_name = user,
             posts = posts,
@@ -96,12 +98,12 @@ def theme_user_post(theme, user, title):
         return abort(404)
     if not users.exist(user):
         return abort(404)
-    post = query(db_name,
+    post = va_query(db_name,
             """
             select title, postdate, content,postid from post
-                where owner = '%s' and
-                      title = '%s'
-                      """ % (user, title))
+                where owner = ? and
+                      title = ?
+                      """, user, title)
 
     if post == []:
         return abort(404)
@@ -129,12 +131,12 @@ def get_post_message(post_id, methods=['GET']):
     print(post_id)
     print(current_user.is_anonymous)
     loging = not current_user.is_anonymous
-    msgs = query(db_name,
+    msgs = va_query(db_name,
             """
             select poster, msgdate, content from message
-                where postid = '%s'
+                where postid = ?
                 order by msgdate desc
-                """ % (post_id))
+                """, post_id)
 
     msgs = [(a,b,markdown2.markdown(c, extras=["header-ids", "fenced-code-blocks"])) for (a,b,c) in msgs]
 
@@ -166,11 +168,11 @@ def upload_message():
             or not postid or not content:
         return abort(403)
 
-    alter(db_name, """
+    va_alter(db_name, """
            INSERT INTO MESSAGE
             (MSGDATE, POSTER, CONTENT, POSTID) VALUES
-            ('%s','%s', '%s', '%s');
-           """ % (time.strftime('%Y-%m-%d %H:%M:%S'),
+            (?, ?, ?, ?);
+           """ , time.strftime('%Y-%m-%d %H:%M:%S'),
                current_user.get_username(),
-               content, postid))
+               content, postid)
     return Response("ok")

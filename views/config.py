@@ -12,17 +12,22 @@ currlatout = ""
 @login_required
 def config():
     selectlist = []
-    
+
     selectlist.append(request.form.getlist('allLayout'))
     listToStr = ','.join(letters(str(r)) for v in selectlist for r in v)
     print(listToStr)
-    
-    storeLayout(db_name,listToStr,current_user.get_username())
-    
+
+    if listToStr.strip():
+        storeLayout(db_name,listToStr,current_user.get_username())
+        return redirect(url_for('manage_pages.manage'))
+
     currlatout = getCurrentLayout(db_name, current_user.get_username())
-    
+
     allLayout = getLayoutName(db_name,"LAYOUTNAME")
-    return render_template('config.html',allLayout=allLayout,currentLay = currlatout)
+    return render_template('config.html',
+            allLayout = allLayout,
+            currentLay = currlatout,
+            user = current_user.get_username())
 
 def getLayoutName(db,layout):
     return query(db, """
@@ -38,4 +43,4 @@ def storeLayout(db,layout,user):
 
 def getCurrentLayout(db,user):
     return query(db,
-                 """SELECT LAYOUTNAME FROM BLOG WHERE OWNER = {own};""".format(own = "'" +user+"'"))[0][0] 
+                 """SELECT LAYOUTNAME FROM BLOG WHERE OWNER = {own};""".format(own = "'" +user+"'"))[0][0]
