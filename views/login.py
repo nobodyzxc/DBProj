@@ -58,7 +58,7 @@ def login():
             Response("Invalid signin/signup form")
     else:
         return render_template('login.html',
-                info = "no post data",
+                info = "", # no post data
                 relog_href = relog_href)
 
 # -> provide logout function

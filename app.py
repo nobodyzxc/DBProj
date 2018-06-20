@@ -21,8 +21,13 @@ def page_not_found(e):
 # -> login, and blog available
 @app.route('/')
 def index():
-    return render_template('index.html', users = users.users)
+    return render_template('index.html',
+            users = users.users,
+            user_list = [k for k in users.users])
 
+@app.route('/test')
+def test():
+    return render_template('t.html')
 if __name__=='__main__':
     app.users = users
 
