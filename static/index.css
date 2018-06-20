@@ -1,5 +1,9 @@
 body {margin:0;}
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 .navbar {
     overflow: hidden;
     background-color: #333;
@@ -11,6 +15,7 @@ body {margin:0;}
 }
 
 .navbar a {
+    height:47px;
     float: left;
     display: block;
     color: #f2f2f2;

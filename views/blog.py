@@ -25,7 +25,8 @@ def home_page(user):
             user_name = user,
             posts = posts,
             blog_name = blogname,
-            post_wedge = '\n')
+            post_wedge = '\n',
+            cat_href = ("/" if current_user.is_anonymous else "/manage"))
 
 
     if not users.exist(user):
@@ -64,7 +65,8 @@ def user_post(user, title):
             blog_href = '/blog/' + user,
             post_id = post[0][3],
             post_wedge = '\n',
-            post_tocs = toc)
+            post_tocs = toc,
+            cat_href = ("/" if current_user.is_anonymous else "/manage"))
 
 def get_blog_theme(user):
     return va_query(db_name,
@@ -90,7 +92,8 @@ def theme_home_page(theme, user):
             user_name = user,
             posts = posts,
             blog_name = get_blog_theme(user)[0],
-            post_wedge = '\n')
+            post_wedge = '\n',
+            cat_href = ("/" if current_user.is_anonymous else "/manage"))
 
 @blog_pages.route('/ex/<string:theme>/<string:user>/<string:title>')
 def theme_user_post(theme, user, title):
@@ -123,7 +126,8 @@ def theme_user_post(theme, user, title):
             blog_name = get_blog_theme(user)[0],
             blog_href = '/blog/' + user,
             post_wedge = '\n',
-            post_tocs = toc)
+            post_tocs = toc,
+            cat_href = ("/" if current_user.is_anonymous else "/manage"))
 
 
 @blog_pages.route('/message/<int:post_id>')
