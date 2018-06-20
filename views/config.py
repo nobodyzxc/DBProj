@@ -5,9 +5,8 @@ from module.db import query, alter
 
 config_pages = Blueprint('config_pages', __name__,
                         template_folder='templates')
-title = ["title1","title2","title3","title4"]
-allLayout = [["aaa","bbb","ccc"],["aa","bb"]]
-
+allLayout = []
+currlatout = ""
 # layout and extension market here
 @config_pages.route('/config', methods=['GET' , 'POST'])
 @login_required
@@ -17,12 +16,26 @@ def config():
     selectlist.append(request.form.getlist('allLayout'))
     listToStr = ','.join(letters(str(r)) for v in selectlist for r in v)
     print(listToStr)
-    allLayout[0] = getLayoutName(db_name,"LAYOUTNAME")
-    return render_template('config.html',allLayout=allLayout,LayoutTitle = title)
+    
+    storeLayout(db_name,listToStr,current_user.get_username())
+    
+    currlatout = getCurrentLayout(db_name, current_user.get_username())
+    
+    allLayout = getLayoutName(db_name,"LAYOUTNAME")
+    return render_template('config.html',allLayout=allLayout,currentLay = currlatout)
 
 def getLayoutName(db,layout):
     return query(db, """
-            SELECT LAYOUTNAME FROM LAYOUT
+            SELECT {LAYOUTNAME} FROM LAYOUT
                 """.format(LAYOUTNAME = layout))
 def letters(input):
     return ''.join([str(c) for c in input if (c.isalpha())])
+
+def storeLayout(db,layout,user):
+    return alter(db,"""
+            UPDATE BLOG SET LAYOUTNAME = {Layout} WHERE OWNER = {own}
+            """.format(Layout =  "'" +layout+"'",own = "'" +user+"'"))
+
+def getCurrentLayout(db,user):
+    return query(db,
+                 """SELECT LAYOUTNAME FROM BLOG WHERE OWNER = {own};""".format(own = "'" +user+"'"))[0][0] 

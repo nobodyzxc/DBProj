@@ -13,15 +13,16 @@
         <h1>config</h1>
         <form method="POST">
             <div class="container"> 
-                {% for i in range(0,allLayout.__len__()) %}
-<!--                    <h3>{{ LayoutTitle[i] }}</h3>-->
                     <select name="allLayout" method="GET" action="/">
-                        {% for j in range(0,allLayout[i].__len__()) %}
-                            <option value="{{allLayout[i][j]}}">{{allLayout[i][j]}}</option>"
+                        {% for layout in allLayout %}
+                            {% if layout[0] == currentLay %}
+                                <option value="{{layout[0]}}" selected>{{layout[0]}}</option>"
+                            {% else %}
+                                <option value="{{layout[0]}}">{{layout[0]}}</option>"
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <hr>
-                {% endfor %}
             </div>
             
             
