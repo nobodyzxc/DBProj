@@ -44,7 +44,7 @@ button {
         <div class="navbar">
             <a href="/"><i class="fab fa-blogger"></i></a>
             <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
-            <ax ><input id="msg" type="text" class="form-control" name="msg" placeholder={{title}}></ax>
+            <ax ><input id="msg" type="text" class="form-control" name="msg" placeholder="{{title}}"></ax>
             <a style="float:right" href="/manage">Back</a>
             <button style="float:right" form="theme" type="submit" value="save" id="submit"><a>Save</a></button>
         </div>
@@ -52,6 +52,7 @@ button {
 
         <!--<div class="container">-->
             <br><br><br>
+            <div id=postid style='display:none'>{{postid}}</div>
             <div id="test-editormd">
                 <textarea style="display:none;" id="mkd">{{mkd}}</textarea>
             </div>
@@ -77,6 +78,7 @@ button {
                     var title = $('#msg').val();
                     var mkd = $('#mkd').val();
                     var postid = $('#postid').text();
+                    console.log("post id is", postid);
                     console.log("post",postid)
                     console.log(title, ":", title.length)
                     console.log(mkd)

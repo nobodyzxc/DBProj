@@ -2,6 +2,7 @@ from flask import abort, Blueprint, render_template, request, redirect, flash, u
 from flask_login import login_required, current_user
 from app import app, users, db_name
 from module.db import query, alter, va_query, va_alter
+import time
 
 editor_pages = Blueprint('editor_pages', __name__,
                         template_folder='templates')
@@ -14,7 +15,9 @@ def editor():
     postid = request.args.get('postid', default = None)
 
     if not postid:
-        return abort(404)
+        return render_template('editor.html',
+            title = "new post")
+        #return abort(404)
 
     name = current_user.get_username()
 
@@ -37,27 +40,37 @@ def editor():
 @editor_pages.route('/editor/update_post', methods=['GET', 'POST'])
 def update_post():
     mkd = request.form.get('mkd')
-    postid = request.form.get('postid')
+    postid = request.form.get('postid', default = None)
     name = current_user.get_username()
 
-    posts = va_query(db_name, """
-    select owner from post
-        where postid = ?
-    """, postid)
+    if postid: # update
 
-    if not posts:
-        return abort(404)
+        posts = va_query(db_name, """
+        select title, owner from post
+            where postid = ?
+        """, postid)
 
-    owner = posts[0][0]
+        if not posts:
+            return abort(404)
 
-    if owner != name:
-        return abort(403)
+        title, owner = posts[0]
 
-    va_alter(db_name, """update post
-                   set content = ?
-                   where postid = ?
-                   """, mkd, postid)
-    return("success")
+        if owner != name:
+            return abort(403)
+
+        title = request.form.get("title", title)
+
+        va_alter(db_name, """update post
+                       set content = ?
+                       set title = ?
+                       where postid = ?
+                       """, mkd, title, postid)
+        return("success")
+
+    else: # insert
+        title = request.form.get("title" , "new post")
+        va_query(db_name, """
+        INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER) VALUES (?,?, ?, ?);""" , (title, mkd, time.strftime('%Y-%m-%d %H:%M:%S'), name))
 
 # @editor_pages.route('/editor/update_all', methods=['GET', 'POST'])
 # def update_all():
