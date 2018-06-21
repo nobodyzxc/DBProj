@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 from flask_login import login_required, current_user
 from app import app, users, db_name
-from module.db import query, alter
+from module.db import query, alter, va_query
 
 config_pages = Blueprint('config_pages', __name__,
                         template_folder='templates')
@@ -11,6 +11,13 @@ currlatout = ""
 @config_pages.route('/config', methods=['GET' , 'POST'])
 @login_required
 def config():
+
+    blogname = va_query(db_name,
+            """
+            select blogname from blog
+                where owner = ?
+                """, current_user.username)[0][0]
+
     selectlist = []
 
     selectlist.append(request.form.getlist('allLayout'))
@@ -25,6 +32,7 @@ def config():
 
     allLayout = getLayoutName(db_name,"LAYOUTNAME")
     return render_template('config.html',
+            blog = blogname,
             allLayout = allLayout,
             currentLay = currlatout,
             user = current_user.get_username())

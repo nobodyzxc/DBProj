@@ -12,11 +12,19 @@ global postId
 @login_required
 def editor():
 
+    blogname = va_query(db_name,
+            """
+            select blogname from blog
+                where owner = ?
+                """, current_user.username)[0][0]
+
     postid = request.args.get('postid', default = None)
 
     if not postid:
         return render_template('editor.html',
-            title = "new post")
+            title = "new post",
+            name = current_user.username,
+            blog = blogname)
         #return abort(404)
 
     name = current_user.get_username()
@@ -35,7 +43,9 @@ def editor():
         return abort(403)
 
     return render_template('editor.html',
-            mkd = mkd, title = title, postid = postid)
+            mkd = mkd, title = title, postid = postid,
+            name = current_user.username,
+            blog = blogname)
 
 @editor_pages.route('/editor/update_post', methods=['GET', 'POST'])
 def update_post():

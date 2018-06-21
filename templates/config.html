@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/BsMultiSelect.css') }}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 -->
+
 <style>
 button:hover{
     color:black;
@@ -38,7 +39,7 @@ button {
 <body>
     <div class="navbar">
         <a class="navlink" href="/"><i class="fab fa-blogger"></i></a>
-        <a class="navlink" href="https://github.com/nobodyzxc/DBProj">Project Page</a>
+        <a style="float:left" href="/blog/{{user}}">{{ blog }}</a>
         <a class="navlink" style="float:right" href="/manage">Back</a>
         <button style="float:right" form="theme" type="submit" value="save"><a class="navlink">Save</a></button>
     </div>
@@ -46,27 +47,27 @@ button {
     <br><br>
     <br><br>
     <center>
-    <div style="position:relative;width: 800px;height: 320px;">
-        <div>
-            <iframe id="demoFrame" src="/blog/{{user}}" width="800" height="320" scrolling="no"></iframe>
-        </div>
-        <div style="position: absolute;top:0;left:0;width: 800px;height:320px;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
-    </div><br><br><br><br>
-    <form id="theme" method="POST">
-        <div class="container">
-            <select class='select-box' id="themeBox" name="allLayout" method="GET" action="/">
-                {% for layout in allLayout %}
-                {% if layout[0] == currentLay %}
-                <option value="{{layout[0]}}" selected>{{layout[0]}}</option>"
-                {% else %}
-                <option value="{{layout[0]}}">{{layout[0]}}</option>"
-                {% endif %}
-                {% endfor %}
-            </select>
-            <hr>
-        </div>
-        <br>
-    </form>
+        <div style="position:relative;width: 800px;height: 320px;">
+            <div>
+                <iframe id="demoFrame" src="/blog/{{user}}" width="800" height="320" scrolling="no"></iframe>
+            </div>
+            <div style="position: absolute;top:0;left:0;width: 800px;height:320px;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>
+        </div><br><br><br><br>
+        <form id="theme" method="POST">
+            <div class="container">
+                <select class='select-box' id="themeBox" name="allLayout" method="GET" action="/">
+                    {% for layout in allLayout %}
+                    {% if layout[0] == currentLay %}
+                    <option value="{{layout[0]}}" selected>{{layout[0]}}</option>"
+                    {% else %}
+                    <option value="{{layout[0]}}">{{layout[0]}}</option>"
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <hr>
+            </div>
+            <br>
+        </form>
     </center>
 </body>
 <script>
