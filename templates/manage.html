@@ -16,7 +16,6 @@
 
         <h1>user console</h1>
         <p> hello! {{ name }}</p>
-        <a href='./config'>config</a>
         <p>here are your posts</p>
         <table width="80%" border="1">
             <tr>
@@ -26,7 +25,7 @@
             </tr>
             {% for i in length %}
             <tr>
-                <td width="20%">{{postid[i]}}</td>
+                <td width="20%"><a href="/editor?postid={{postid[i]}}">{{postid[i]}}</a></td>
                 <td width="40%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
                 <td width="40%">{{date[i]}}</td>
             </tr>
