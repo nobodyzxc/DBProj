@@ -32,10 +32,10 @@ def manage():
 @manage_pages.route('/manage/delete_post', methods=['GET', 'POST'])
 def delete_post():
     if request.method == 'POST':
-        postid = re.findall('[0-9]', request.form["postid"])
-        postid = int(''.join(postid))
-        alter(db_name, """delete from post
-                        where postid = {} and owner= {}""".format(postid,
-                                                        "'"+current_user.username+"'"))
+        postid = request.form.getlist("postid")
+        for pid in postid:
+            alter(db_name, """delete from post
+                            where postid = {} and owner= {}""".format(pid,
+                                                            "'"+current_user.username+"'"))
 
     return redirect(url_for('manage_pages.manage'))

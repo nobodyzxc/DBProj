@@ -17,24 +17,26 @@
         <h1>user console</h1>
         <p> hello! {{ name }}</p>
         <p>here are your posts</p>
+        <form action="./manage/delete_post" method="post">
         <table width="80%" border="1">
             <tr>
-                <td>post_id</td>
                 <td>post</td>
+                <td> </td>
                 <td>post_date</td>
+                <td>delete</td>
             </tr>
             {% for i in length %}
             <tr>
-                <td width="20%"><a href="/editor?postid={{postid[i]}}">{{postid[i]}}</a></td>
-                <td width="40%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
-                <td width="40%">{{date[i]}}</td>
+                <td width="30%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
+                <td width="20%"><a href="/editor?postid={{postid[i]}}">edit</a></td>
+                <td width="30%">{{date[i]}}</td>
+                <td width="20">
+                  <input type="checkbox" name="postid" value={{postid[i]}}>
+                </td>
             </tr>
             {% endfor %}
         </table>
-        <p>delete post</p>
-        <form action="./manage/delete_post" method="post">
-            <p><input type=text name=postid placeholder="Enter post id">
-                <p><input type=submit value=Submit>
+        <p><input type=submit value=Submit></p>
         </form>
         <a href="/editor">new post</a>
     </body>
