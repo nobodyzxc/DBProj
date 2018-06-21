@@ -60,17 +60,18 @@ def update_post():
 
         title = request.form.get("title", title)
 
-        va_alter(db_name, """update post
-                       set content = ?
-                       set title = ?
-                       where postid = ?
+        va_alter(db_name, """update post set
+			        content = ?,
+                      	title = ?
+                       	where postid = ?
                        """, mkd, title, postid)
         return("success")
 
     else: # insert
         title = request.form.get("title" , "new post")
-        va_query(db_name, """
-        INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER) VALUES (?,?, ?, ?);""" , (title, mkd, time.strftime('%Y-%m-%d %H:%M:%S'), name))
+        va_alter(db_name, """
+        INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER) VALUES (?,?, ?, ?);""", title, mkd, time.strftime('%Y-%m-%d %H:%M:%S'), name)
+        return("success")
 
 # @editor_pages.route('/editor/update_all', methods=['GET', 'POST'])
 # def update_all():

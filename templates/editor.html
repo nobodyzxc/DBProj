@@ -89,18 +89,18 @@ button {
                                 'postid':postid},
                             method: 'POST',
                             success: function(data) {
-                                console.log(data)
+                                alert(data);
                             }
                         });
                     } else {
                         $.ajax({
-                            url: './editor/update_all',
+                            url: './editor/update_post',
                             data: {'mkd': mkd,
                                 'title': title,
                                 'postid':postid},
                             method: 'POST',
                             success: function(data) {
-                                console.log(data)
+                                alert(data);
                             }
                         });
                     }
