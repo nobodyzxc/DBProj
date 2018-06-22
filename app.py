@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template, request, redirect, flash, url
 from flask_login import login_required, current_user, login_user, LoginManager
 
 from module.user import UsersRepository
+from module.db import va_query
 
 import sqlite3
 
@@ -22,9 +23,9 @@ def page_not_found(e):
 @app.route('/')
 def index():
     name = "" if current_user.is_anonymous else current_user.get_username()
+    user_list = [t[0] for t in va_query(db_name, "select username from user")]
     return render_template('index.html',
-            users = users.users,
-            user_list = [k for k in users.users],
+            user_list = user_list,
             logging = not current_user.is_anonymous,
             name = name)
 

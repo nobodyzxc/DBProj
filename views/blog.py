@@ -135,21 +135,32 @@ def get_post_message(post_id, methods=['GET']):
     print(post_id)
     print(current_user.is_anonymous)
     loging = not current_user.is_anonymous
+
+    who = current_user.username if loging else ''
+
     msgs = va_query(db_name,
             """
-            select poster, msgdate, content from message
+            select poster, msgdate, content, msgid from message
                 where postid = ?
                 order by msgdate desc
                 """, post_id)
 
-    msgs = [(a,b,markdown2.markdown(c, extras=["header-ids", "fenced-code-blocks"])) for (a,b,c) in msgs]
+    blogger = va_query(db_name,
+            """
+            select owner from post
+                where postid = ?
+            """, post_id)[0][0]
+
+    msgs = [(a,b,markdown2.markdown(c, extras=["header-ids", "fenced-code-blocks"]), d) for (a,b,c,d) in msgs]
 
     next_href = '/login?' + urlencode(
             {'next':request.args["next"]},
             quote_via=quote_plus)
 
     return render_template('message.html',
+            who = who,
             messages = msgs,
+            blogger = blogger,
             logining = loging,
             post_id = post_id,
             prev_href =
@@ -179,4 +190,27 @@ def upload_message():
            """ , time.strftime('%Y-%m-%d %H:%M:%S'),
                current_user.get_username(),
                content, postid)
+    return Response("ok")
+
+
+@blog_pages.route('/message_del', methods=['GET', 'POST'])
+def message_del():
+    msgid = request.args.get("id", None)
+
+    if not msgid or current_user.is_anonymous:
+        return Response("not ok")
+
+    postid, writer = va_query(db_name,"""
+            select postid, poster from message
+                where msgid = ?""", msgid)[0]
+    owner = va_query(db_name,"""
+            select owner from post
+                where postid = ? """, postid)[0][0]
+    
+    if current_user.username == owner or \
+        current_user.username == writer:
+        va_alter(db_name,
+                """
+                delete from message
+                    where msgid = ?""", msgid)
     return Response("ok")

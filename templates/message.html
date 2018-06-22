@@ -4,42 +4,42 @@
     <div class="vwrap">
         {% if logining %}
         <script>
-        $('#comment_form').submit(function(e){
-            e.preventDefault();
-            $.ajax({
-                url:"{{submit_url}}",
-                type:'post',
-                data:$('#comment_form').serialize(),
-                success:function(){
-                $.ajax({url:"/message/{{post_id}}?next=" + encodeURIComponent(document.URL),success:function(result){
-    $("#comment").html(result);
-  }});
+            $('#comment_form').submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url:"{{submit_url}}",
+                    type:'post',
+                    data:$('#comment_form').serialize(),
+                    success:function(){
+                        $.ajax({url:"/message/{{post_id}}?next=" + encodeURIComponent(document.URL),success:function(result){
+                            $("#comment").html(result);
+                        }});
+                    }
+                });
+            });
+            $('#moe_text').keydown(function (e) {
+                if (e.ctrlKey && e.keyCode == 13) {
+                    $('#hit_me').click();
                 }
             });
-        });
-        $('#moe_text').keydown(function (e) {
-          if (e.ctrlKey && e.keyCode == 13) {
-            $('#hit_me').click();
-          }
-        });
         </script>
         <form id="comment_form">
-        <div class="vedit">
-            <textarea id="moe_text" name="content" class="veditor vinput" placeholder="ヾﾉ≧∀≦)o来啊，快活啊!"></textarea>
-            <input type="hidden" name="postid" value="{{ post_id }}">
-        </div>
-        {% else %}
-        <form id="comment_form" action="/login" method="{{ method }}">
-        <input name="next" type="hidden" value="{{ prev_href }}">
-        {% endif %}
-        <div class="vcontrol">
-            <div class="col col-60" title="MarkDown is Support"><a href="https://segmentfault.com/markdown" target="_blank">MarkDown</a> is Support<label for="argee" style="display:none;"></label></div>
-            <div class="col col-40 text-right">
-            <button id="hit_me" type="submit" title="Ctrl+Enter" class="vsubmit vbtn">{{ submit_btn_name }}</button>
+            <div class="vedit">
+                <textarea id="moe_text" name="content" class="veditor vinput" placeholder="ヾﾉ≧∀≦)o来啊，快活啊!"></textarea>
+                <input type="hidden" name="postid" value="{{ post_id }}">
             </div>
-        </div>
-        </form>
-        <div style="display:none;" class="vmark"></div>
+            {% else %}
+            <form id="comment_form" action="/login" method="{{ method }}">
+                <input name="next" type="hidden" value="{{ prev_href }}">
+                {% endif %}
+                <div class="vcontrol">
+                    <div class="col col-60" title="MarkDown is Support"><a href="https://segmentfault.com/markdown" target="_blank">MarkDown</a> is Support<label for="argee" style="display:none;"></label></div>
+                    <div class="col col-40 text-right">
+                        <button id="hit_me" type="submit" title="Ctrl+Enter" class="vsubmit vbtn">{{ submit_btn_name }}</button>
+                    </div>
+                </div>
+            </form>
+            <div style="display:none;" class="vmark"></div>
     </div>
     <div class="vinfo" style="display:block;">
         <div class="vcount col"><span class="vnum">{{ msg_count }}</span> 評論 </div>
@@ -47,17 +47,20 @@
     {% for msg in messages %}
     <ul class="vlist">
         <li class="vcard" id="5b1a2aec67f35600318c2ca3">
-        <img class="vimg" src="https://gravatar.cat.net/avatar/d41d8cd98f00b204e9800998ecf8427e?d=retro">
-        <section>
-        <div class="vhead"><span class="vname"><a href="/blog/{{msg[0]}}">{{msg[0]}}</a></span></div>
-        <div class="vcontent">
-            <p> {{ msg[2]|safe }}</p>
-        </div>
-        <div class="vfooter">
-            <span class="vtime">{{ msg[1] }}</span>
-            <div></div>
-        </div>
-        </section>
+            <img class="vimg" src="https://gravatar.cat.net/avatar/d41d8cd98f00b204e9800998ecf8427e?d=retro">
+            <section>
+                <div class="vhead"><span class="vname"><a href="/blog/{{msg[0]}}">{{msg[0]}}</a></span></div>
+                <div class="vcontent">
+                    <p> {{ msg[2]|safe }}</p>
+                </div>
+                <div class="vfooter">
+                    <span class="vtime">{{ msg[1] }}</span>
+                    {% if logining and (msg[0] == who or who == blogger) %}
+                    <a class="del" href="javascript:void(0);" url="/message_del?id={{msg[3]}}">刪除</a>
+                    {% endif %}
+                    <div></div>
+                </div>
+            </section>
         </li>
     </ul>
 
@@ -69,3 +72,16 @@
         <div class="power txt-right">Only CSS and HTML Powered By <a href="https://valine.js.org" target="_blank">Valine</a><br>v1.1.8</div>
     </div>
 </div>
+
+<script>
+    $(".del").click(function(){
+        alert("he");
+        $.ajax({
+            url:$(this).attr("url"),
+            success: function(result){
+                $.ajax({url:"/message/{{post_id}}?next=" + encodeURIComponent(document.URL),success:function(result){
+                    $("#comment").html(result);
+                }});
+            }});
+    });
+</script>

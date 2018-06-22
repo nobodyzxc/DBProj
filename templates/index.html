@@ -23,7 +23,8 @@
         <div class="main">
         <center>
             <h1>DB final project - Markdown Blog Server</h1>
-            {% for user in users %} 
+
+            {% for user in user_list %} 
             <div style="position:relative;width: 800px;height: 290px;">
                 <div>
                     <iframe src="/blog/{{user}}" width="800" height="290" scrolling="no"></iframe>
