@@ -2,39 +2,134 @@
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link href="/static/index.css" rel="stylesheet" type="text/css">
-        <link href="/static/manage.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <style>
+        /* Border styles */
+        body {
+    font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    background: #E6EAE9;
+}
+
+a {
+    color: #c75f3e;
+}
+
+mytable {
+    width: 700px;
+    padding: 0;
+    margin: 0;
+}
+
+caption {
+    padding: 0 0 5px 0;
+    width: 700px;
+    font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    text-align: right;
+}
+
+th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    border-top: 1px solid #C1DAD7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 6px 6px 12px;
+    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+th.nobg {
+    border-top: 0;
+    border-left: 0;
+    border-right: 1px solid #C1DAD7;
+    background: none;
+}
+
+td {
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    background: #fff;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+}
+
+
+td.alt {
+    background: #F5FAFA;
+    color: #797268;
+}
+
+th.spec {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    background: #fff url(images/bullet1.gif) no-repeat;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+    border-left: 1px solid #C1DAD7;
+    border-top: 0;
+    background: #f5fafa url(images/bullet2.gif) no-repeat;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #797268;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+
+        </style>
     </head>
     <body>
         <div class="navbar">
             <a href="/"><i class="fab fa-blogger"></i></a>
-            <a style="float:left" href="/blog/{{name}}">{{ blog }}</a>
+            <a href="https://github.com/nobodyzxc/DBProj">Project Page</a>
             <a style="float:right" href="/logout">Logout</a>
             <a style="float:right" href="/config">Config</a>
-            <a style="float:right" href="/editor">NewPost</a>
+            <a style="float:right" href="/blog/{{name}}">MyBlog</a>
         </div>
-        <br><br><br><br><br><br>
+        <br><br>
 
-        <h1></h1>
+        <h1>User Console</h1>
+        <center>
+          <h2>Hello! {{ name }}</h2>
+        </center>
+        <h3>Here are your posts</h3>
         <form action="./manage/delete_post" method="post">
-        <table width="80%" border="1">
+        <table id="mytable" cellspacing="0" width=80%>
             <tr>
                 <th>post</th>
+                <th> </th>
                 <th>post_date</th>
-                <th>edit</th>
-                <th><input type=submit value=Delete></th>
+                <th>delete</th>
             </tr>
             {% for i in length %}
             <tr>
-                <td width="30%"><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></td>
-                <td width="30%">{{date[i]}}</td>
-                <td width="20%"><a href="/editor?postid={{postid[i]}}"><img src="https://pandao.github.io/editor.md/favicon.ico"/></a></td>
-                <td width="20">
+                <th scope="row" abbr="Frontside bus" class="spec" width=30%><a href='/blog/{{name}}/{{title[i]}}'>{{title[i]}}</a></th>
+                <th scope="row" abbr="Frontside bus" class="spec" width=20%><a href="/editor?postid={{postid[i]}}">edit</a></th>
+                <th scope="row" abbr="Frontside bus" class="spec" width=30%>{{date[i]}}</th>
+                <th scope="row" abbr="Frontside bus" class="spec" width=20%>
                   <input type="checkbox" name="postid" value={{postid[i]}}>
-                </td>
+                </th>
             </tr>
             {% endfor %}
         </table>
+        <p><input type=submit value=Submit class="button button2"></p>
         </form>
+        <a href="/editor">new post</a>
     </body>
 </html>
