@@ -163,7 +163,7 @@ def get_post_message(post_id, methods=['GET']):
             msg_count = len(msgs)
             )
 
-@blog_pages.route('/message_upload', methods=['POST'])
+@blog_pages.route('/message_upload', methods=['GET', 'POST'])
 def upload_message():
     postid = request.form.get("postid", default = None)
     content = request.form.get("content", default=None)

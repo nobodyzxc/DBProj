@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for
+from flask import Blueprint, render_template, request, redirect, flash, url_for, abort, Response
 from flask_login import login_required, current_user
 from app import app, users, db_name
-from module.db import query, alter, va_query
+from module.db import query, alter, va_query, va_alter
 import re
+import json
 
 manage_pages = Blueprint('manage_pages', __name__,
                         template_folder='templates')
@@ -51,3 +52,34 @@ def delete_post():
                                                             "'"+current_user.username+"'"))
 
     return redirect(url_for('manage_pages.manage'))
+
+@manage_pages.route('/manage/update_title',methods=['POST', 'GET'])
+@login_required
+def update_title():
+    postid = request.form.get("postid", None)
+    newtitle = request.form.get("newtitle", None)
+    print(request.form)
+    if postid and newtitle:
+        posts = va_query(db_name, """
+            select owner from post
+                where postid = ?""", postid)
+        if posts:
+            owner = posts[0][0]
+            if owner == current_user.username:
+                va_alter(db_name, """
+                    update post set
+                        title = ?
+                        where postid = ?""",
+                        newtitle, postid)
+
+                return Response(
+                        json.dumps({
+                            "status": "success",
+                            "href": ("/blog/%s/%s"
+                                % (owner, newtitle)),
+                            "text": newtitle,
+                            "postid": postid
+                            }),
+                        mimetype = 'application/json')
+
+    return Response(json.dumps({"status" : "failed"}), mimetype = 'application/json')
