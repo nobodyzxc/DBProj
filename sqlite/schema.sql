@@ -25,6 +25,6 @@ CREATE TABLE MESSAGE( MSGID     INTEGER   PRIMARY KEY   AUTOINCREMENT,
                       CONTENT   TEXT      NOT NULL,
                       POSTID    INTEGER   NOT NULL,
                       FOREIGN KEY(POSTID) REFERENCES POST(POSTID)
-                        ON DELETE CASCADE
+                        ON DELETE CASCADE,
                       FOREIGN KEY(POSTER) REFERENCES USER(USERNAME));
 COMMIT;
