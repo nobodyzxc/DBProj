@@ -14,9 +14,9 @@ INSERT INTO LAYOUT VALUES("muse");
 INSERT INTO LAYOUT VALUES("pisces");
 INSERT INTO LAYOUT VALUES("gemini");
 
-INSERT INTO BLOG VALUES('Where is the admin?', 'admin', '0000000', "gemini");
-INSERT INTO BLOG VALUES('bdmin is here!', 'bdmin', '0000000', "pisces");
-INSERT INTO BLOG VALUES('cdmin is foo~', 'cdmin', '0000000', "muse");
-INSERT INTO BLOG VALUES('dd the root directory!', 'ddmin', '0000000', "mist");
+INSERT INTO BLOG VALUES('Where is the admin?', 'admin', "gemini");
+INSERT INTO BLOG VALUES('bdmin is here!', 'bdmin', "pisces");
+INSERT INTO BLOG VALUES('cdmin is foo~', 'cdmin', "muse");
+INSERT INTO BLOG VALUES('dd the root directory!', 'ddmin', "mist");
 
 COMMIT;

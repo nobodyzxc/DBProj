@@ -91,7 +91,7 @@
             <a style="float:left" href="/blog/{{name}}">{{ blog }}</a>
             <a style="float:right" href="/logout">Logout</a>
             <a style="float:right" href="/config">Config</a>
-            <a style="float:right" href="/editor">NewPost</a>
+            <a style="float:right" href="/editor?blog={{blog}}">NewPost</a>
         </div>
         <br><br><br><br><br><br>
 
@@ -115,7 +115,7 @@
                         <a class="txtlink" href='/blog/{{name}}/{{title[i]}}' postid="{{postid[i]}}">{{title[i]}}</a>
                     </td>
                     <td width="30%">{{date[i]}}</td>
-                    <td width="20%"><a href="/editor?postid={{postid[i]}}"><img src="https://pandao.github.io/editor.md/favicon.ico"/></a></td>
+                    <td width="20%"><a href="/editor?postid={{postid[i]}}&blog={{blog}}"><img src="https://pandao.github.io/editor.md/favicon.ico"/></a></td>
                     <td width="20">
                         <input type="checkbox" name="postid" value={{postid[i]}}>
                     </td>

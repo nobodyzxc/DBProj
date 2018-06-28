@@ -12,11 +12,14 @@ global postId
 @login_required
 def editor():
 
-    blogname = va_query(db_name,
-            """
-            select blogname from blog
-                where owner = ?
-                """, current_user.username)[0][0]
+    blogname = request.args.get('blog', default = None)
+    if not blogname:
+        blogname = va_query(db_name,
+                """
+                select blogname from blog
+                    where owner = ?
+                    """, current_user.username)[0][0]
+
 
     postid = request.args.get('postid', default = None)
 
@@ -51,6 +54,7 @@ def editor():
 def update_post():
     mkd = request.form.get('mkd')
     postid = request.form.get('postid', default = None)
+    blogname = request.form.get('blog', default = None)
     name = current_user.get_username()
 
     if postid: # update
@@ -77,28 +81,12 @@ def update_post():
                        """, mkd, title, postid)
         return("success")
 
-    else: # insert
+    elif blogname: # insert
+        print("name is", blogname)
         title = request.form.get("title" , "new post")
         va_alter(db_name, """
-        INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER) VALUES (?,?, ?, ?);""", title, mkd, time.strftime('%Y-%m-%d %H:%M:%S'), name)
+        INSERT INTO POST (TITLE, CONTENT, POSTDATE, OWNER, BLOGNAME) VALUES (?,?, ?, ?, ?);""", title, mkd, time.strftime('%Y-%m-%d %H:%M:%S'), name, blogname)
         return("success")
 
-# @editor_pages.route('/editor/update_all', methods=['GET', 'POST'])
-# def update_all():
-#     mkd = request.form.get('mkd')
-#     postid = request.form.get('postid')
-#     title = request.form.get('postid')
-#     name = current_user.get_username()
-#     alter(db_name, """update post
-#                    set content = '%s' , title = '%s'
-#                    where owner = '%s' and postid = %s
-#                    """% (mkd, title, name, postid))
-#     return("success")
-
-
-
-# alter(db_name, """update post
-#                   set content = '%s',title = '%s'
-#                   where owner = '%s' and postid = '%s'
-#                   """% (mkd, title, name, postid))
-
+    else:
+        return("failed")

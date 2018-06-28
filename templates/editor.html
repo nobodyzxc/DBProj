@@ -86,7 +86,9 @@ button {
                         $.ajax({
                             url: './editor/update_post',
                             data: {'mkd': mkd,
-                                'postid':postid},
+                                'postid':postid,
+                                'blog':"{{blog}}",
+                            },
                             method: 'POST',
                             success: function(data) {
                                 alert(data);
@@ -97,7 +99,9 @@ button {
                             url: './editor/update_post',
                             data: {'mkd': mkd,
                                 'title': title,
-                                'postid':postid},
+                                'postid':postid,
+                                'blog':"{{blog}}",
+                            },
                             method: 'POST',
                             success: function(data) {
                                 alert(data);
