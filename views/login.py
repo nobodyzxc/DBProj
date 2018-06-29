@@ -50,7 +50,7 @@ def login():
                 users.save_user(db_name , username, hash_password(password))
                 login_user(users.get_user(username))
                 va_alter(db_name, """
-                    insert into blog values(?, ?, '0000000', 'muse');
+                    insert into blog values(?, ?, 'muse');
                 """, blogname, username)
                 return redirect(url_for('manage_pages.manage'))
             else:
